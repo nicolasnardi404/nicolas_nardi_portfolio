@@ -19,6 +19,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--deep-purple);
   color: var(--sunny-yellow);
+  min-height: 100vh; /* Ensure the background covers the full viewport height */
 }
 
 @font-face {

@@ -22,6 +22,7 @@ body {
   color: var(--sunny-yellow);
   font-size: 16px;
   font-family: roboto, 'Arial', sans-serif;
+  min-height: 100vh; /* Ensure the background covers the full viewport height */
 }
 
 @font-face {
