@@ -1,24 +1,111 @@
-/* color pallete
-Black - #1B1B1E
-Blue-Ocean - #1C6E8C
-White Smoke - #EFF1ED
-Orange - #F3A712
-Purple - #783F8E
- */
+
+
 .profileImg {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
-    display: flex;
-    margin: 0 auto;
-    border: 2px solid #F3A712;
+    border: 3px solid var(--sunny-yellow);
+    margin-right: 1.5rem;
 }
 
-.header{
+.header {
+  display: flex;
+  align-items: center;
+  background-color: var(--deep-purple);
+  padding: 1.5rem;
+  border-radius: 15px;
+ justify-content: center;
+
+}
+
+.profileSection {
+  display: flex;
+  align-items: center;
+}
+
+.titleSection {
   display: flex;
   flex-direction: column;
+}
+
+.title {
+  font-size: 2rem;
+  color: var(--sunny-yellow);
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--sunny-yellow);
+  margin-bottom: 1rem;
+}
+
+.nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.navLink {
+  display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 0.5rem;
+  color: var(--neon-cyan);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--neon-cyan);
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.navLink:hover {
+  background-color: var(--neon-cyan);
+  color: var(--deep-purple);
+}
+
+/* ... rest of your existing styles ... */
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .profileSection {
+    margin-bottom: 1rem;
+  }
+
+  .nav {
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .profileSection {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profileImg {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+
+  .titleSection {
+    align-items: center;
+    text-align: center;
+  }
+
+  .nav {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .navLink {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 .projects-section {
@@ -41,6 +128,14 @@ Purple - #783F8E
     justify-content: center; /* Center the cards horizontally */
   }
   
+
+.titleSection{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
   /* Styling for individual project cards */
   .project-card {
     background-color: var(--deep-purple);

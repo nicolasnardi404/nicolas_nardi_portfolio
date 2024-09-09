@@ -29,22 +29,24 @@ export default function Home() {
             height={100}
             className={styles.profileImg}
           />
-          <h1 className={styles.title}>
-            Nicolas Nardi (They/Them) - Web Developer and Artist
-          </h1>
         </div>
-        <nav className={styles.nav}>
-          {isLoggedIn && (
-            <Link href="/diary" className={styles.navLink}>
-              <FaPencilAlt className={styles.icon} />
-              Write
+        <div className={styles.titleSection}>
+          <h1 className={styles.title}>Nicolas Nardi (They/Them)</h1>
+          <h3 className={styles.subtitle}>Web Developer and Artist</h3>
+
+          <nav className={styles.nav}>
+            {isLoggedIn && (
+              <Link href="/diary" className={styles.navLink}>
+                <FaPencilAlt className={styles.icon} />
+                Write
+              </Link>
+            )}
+            <Link href="/public-diary" className={styles.navLink}>
+              <FaBook className={styles.icon} />
+              Code Diary
             </Link>
-          )}
-          <Link href="/public-diary" className={styles.navLink}>
-            <FaBook className={styles.icon} />
-            Code Diary
-          </Link>
-        </nav>
+          </nav>
+        </div>
       </header>
       <main className={styles.main}>
         <Projects />
