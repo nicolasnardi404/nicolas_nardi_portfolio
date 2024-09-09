@@ -2,7 +2,8 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import styles from "./styles/publicDiary.module.css";
+// import styles from "./styles/publicDiary.module.css";
+import styles from "./styles/projects.module.css";
 import "./styles/App.css";
 import "./styles/Projects.css";
 import "./styles/ProjectModal.css";
@@ -27,7 +28,7 @@ export default function Home() {
             alt="Nicolas Nardi"
             width={100}
             height={100}
-            className="profile-img"
+            className={styles.profileImg}
           />
           <h1 className={styles.title}>
             Nicolas Nardi (They/Them) - Web Developer and Artist
