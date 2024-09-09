@@ -1,0 +1,49 @@
+
+.projectCard {
+  background-color: var(--deep-purple);
+  border: 3px solid var(--neon-cyan);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  color: #EFF1ED; /* Keeping white text for readability */
+}
+
+.projectCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.projectCard.large {
+  flex-basis: 300px;
+}
+
+.projectCard.small {
+  flex-basis: 200px;
+}
+
+.projectTitle {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--sunny-yellow); /* Using sunny yellow for the title */
+}
+
+.projectDescription {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  background-color: var(--neon-cyan);
+  color: var(--deep-purple); /* For contrast */
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}

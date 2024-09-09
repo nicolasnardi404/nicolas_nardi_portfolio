@@ -1,14 +1,19 @@
 import React from "react";
-import "../styles/Projects.css";
+import styles from "../styles/ProjectCard.module.css";
 
 const ProjectCard = ({ title, tags, description, onClick, size }) => {
   return (
-    <div className="project-card" onClick={onClick}>
-      <h3>{title}</h3>
-      <p>{description}</p>
-      <div className="tags">
+    <div
+      className={`${styles.projectCard} ${
+        size === "large" ? styles.large : styles.small
+      }`}
+      onClick={onClick}
+    >
+      <h3 className={styles.projectTitle}>{title}</h3>
+      <p className={styles.projectDescription}>{description}</p>
+      <div className={styles.tags}>
         {tags.map((tag, index) => (
-          <span key={index} className="tag">
+          <span key={index} className={styles.tag}>
             {tag}
           </span>
         ))}

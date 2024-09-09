@@ -1,10 +1,11 @@
 "use client"; // Ensure this is at the very top of the file
 
 import React, { useState } from "react";
-import Image from "next/image"; // Import Next.js Image component
+import Image from "next/image";
+import styles from "../styles/Projects.module.css";
 import ProjectCard from "./ProjectCard";
 import ProjectModal from "./ProjectModal";
-import "../styles/Projects.css";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -70,38 +71,42 @@ const Projects = () => {
   ];
 
   return (
-    <div className="projects-section" id="projects">
-      <h3>
-        Nicolas is a web developer and artist who blends technology with
-        creative expression. They work on projects like an AI tool that
-        generates and refines poems, which are posted daily on a blog. They also
-        manage Random Rainbow, a platform dedicated to showcasing queer video
-        art and supporting artists in sharing their work.
-      </h3>
-
-      <div className="social-links">
-        <a
-          href="https://www.linkedin.com/in/nícolas-nardi"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          LinkedIn
-        </a>
-        <a
-          href="https://github.com/nicolasnardi404"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          GitHub
-        </a>
+    <div className={styles.projectsSection}>
+      <div className={styles.introCard}>
+        <p className={styles.introText}>
+          Nicolas is a web developer and artist who blends technology with
+          creative expression. They work on projects like an AI tool that
+          generates and refines poems, which are posted daily on a blog. They
+          also manage Random Rainbow, a platform dedicated to showcasing queer
+          video art and supporting artists in sharing their work.
+        </p>
+        <div className={styles.socialLinks}>
+          <a
+            href="https://www.linkedin.com/in/nícolas-nardi"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.socialLink}
+          >
+            <FaLinkedin /> LinkedIn
+          </a>
+          <a
+            href="https://github.com/nicolasnardi404"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.socialLink}
+          >
+            <FaGithub /> GitHub
+          </a>
+        </div>
       </div>
 
-      <div className="projects-container">
+      <div className={styles.projectsContainer}>
         {projects.map((project) => (
           <ProjectCard
             key={project.id}
             {...project}
             onClick={() => setSelectedProject(project)}
+            size={project.size} // Add this line if you have a size property in your project objects
           />
         ))}
       </div>
