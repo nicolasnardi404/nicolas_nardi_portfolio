@@ -125,7 +125,9 @@ export default function Diary() {
             </div>
             <p>{entry.content}</p>
             <div className={styles.entryFooter}>
-              <span className={styles.category}>{entry.category}</span>
+              <span className={styles.category}>
+                {entry.category.toUpperCase()}
+              </span>
               <small>{new Date(entry.createdAt).toLocaleString()}</small>
             </div>
           </div>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import CategorySelect from "./CategorySelect";
-import styles from "../styles/DiaryEntryForm.module.css";
+import styles from "../styles/diary.module.css";
 
 const DiaryEntryForm = ({ onSubmit, editingEntry, onCancelEdit }) => {
   const [title, setTitle] = useState("");
@@ -37,12 +37,14 @@ const DiaryEntryForm = ({ onSubmit, editingEntry, onCancelEdit }) => {
         onChange={(e) => setTitle(e.target.value)}
         placeholder="Title"
         required
+        className={styles.input}
       />
       <textarea
         value={content}
         onChange={(e) => setContent(e.target.value)}
         placeholder="Content"
         required
+        className={styles.textarea}
       />
       <CategorySelect
         onCategoryChange={setCategory}
