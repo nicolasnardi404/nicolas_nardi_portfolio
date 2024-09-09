@@ -131,6 +131,7 @@ const Projects = () => {
           </a>
         </div>
       </div>
+      <h1 className={styles.projectsTitle}>Projects:</h1>
       <div className={styles.projectsContainer}>
         {projects.map((project, index) => (
           <ProjectCard
