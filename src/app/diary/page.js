@@ -3,21 +3,17 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import styles from "../styles/diary.module.css";
 import Link from "next/link";
+import { FaEdit, FaTrash } from "react-icons/fa"; // Import icons
 
 export default function Diary() {
   const [entries, setEntries] = useState([]);
   const [newTitle, setNewTitle] = useState("");
   const [newContent, setNewContent] = useState("");
+  const [editingId, setEditingId] = useState(null);
   const router = useRouter();
 
   useEffect(() => {
-    // Check if user is authenticated
-    const token = localStorage.getItem("token");
-    if (!token) {
-      router.push("/login");
-    } else {
-      fetchEntries();
-    }
+    fetchEntries();
   }, []);
 
   const fetchEntries = async () => {
@@ -32,6 +28,7 @@ export default function Diary() {
       );
       if (response.ok) {
         const data = await response.json();
+        console.log(data);
         setEntries(data);
       } else {
         console.error("Failed to fetch entries");
@@ -41,45 +38,61 @@ export default function Diary() {
     }
   };
 
-  const fetchPublicEntries = async () => {
-    try {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/public-diary`
-      );
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const data = await response.json();
-      setEntries(data);
-    } catch (error) {
-      console.error("Error fetching public entries:", error);
-      setError("Failed to load public entries. Please try again later.");
-    }
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/diary`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "x-auth-token": localStorage.getItem("token"),
-          },
-          body: JSON.stringify({ title: newTitle, content: newContent }),
-        }
-      );
+      const url = editingId
+        ? `${process.env.NEXT_PUBLIC_API_URL}/api/diary/${editingId}`
+        : `${process.env.NEXT_PUBLIC_API_URL}/api/diary`;
+      const method = editingId ? "PUT" : "POST";
+
+      const response = await fetch(url, {
+        method: method,
+        headers: {
+          "Content-Type": "application/json",
+          "x-auth-token": localStorage.getItem("token"),
+        },
+        body: JSON.stringify({ title: newTitle, content: newContent }),
+      });
       if (response.ok) {
         setNewTitle("");
         setNewContent("");
+        setEditingId(null);
         fetchEntries();
       } else {
-        console.error("Failed to add entry");
+        console.error("Failed to add/edit entry");
       }
     } catch (error) {
       console.error("Error:", error);
+    }
+  };
+
+  const handleEdit = (entry) => {
+    setNewTitle(entry.title);
+    setNewContent(entry.content);
+    setEditingId(entry.id); // Make sure this is correctly set
+  };
+
+  const handleDelete = async (id) => {
+    if (window.confirm("Are you sure you want to delete this entry?")) {
+      try {
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/api/diary/${id}`,
+          {
+            method: "DELETE",
+            headers: {
+              "x-auth-token": localStorage.getItem("token"),
+            },
+          }
+        );
+        if (response.ok) {
+          fetchEntries();
+        } else {
+          console.error("Failed to delete entry");
+        }
+      } catch (error) {
+        console.error("Error:", error);
+      }
     }
   };
 
@@ -103,13 +116,44 @@ export default function Diary() {
           required
         />
         <button type="submit" className={styles.button}>
-          Add Entry
+          {editingId ? "Update Entry" : "Add Entry"}
         </button>
+        {editingId && (
+          <button
+            type="button"
+            onClick={() => {
+              setEditingId(null);
+              setNewTitle("");
+              setNewContent("");
+            }}
+            className={styles.button}
+          >
+            Cancel Edit
+          </button>
+        )}
       </form>
       <div className={styles.entries}>
-        {entries.map((entry, index) => (
-          <div key={index} className={styles.entry}>
-            <h2>{entry.title}</h2>
+        {entries.map((entry) => (
+          <div key={entry.id} className={styles.entry}>
+            <div className={styles.entryHeader}>
+              <h2>{entry.title}</h2>
+              <div className={styles.entryActions}>
+                <button
+                  onClick={() => handleEdit(entry)}
+                  className={`${styles.button} ${styles.editButton}`}
+                  title="Edit entry"
+                >
+                  <FaEdit />
+                </button>
+                <button
+                  onClick={() => handleDelete(entry.id)}
+                  className={`${styles.button} ${styles.deleteButton}`}
+                  title="Delete entry"
+                >
+                  <FaTrash />
+                </button>
+              </div>
+            </div>
             <p>{entry.content}</p>
             <small>{new Date(entry.createdAt).toLocaleString()}</small>
           </div>
