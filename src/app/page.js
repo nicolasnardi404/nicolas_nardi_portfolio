@@ -6,7 +6,6 @@ import Image from "next/image";
 import styles from "./styles/projects.module.css";
 import "./styles/App.css";
 import "./styles/Projects.css";
-import "./styles/ProjectModal.css";
 import "./styles/ProjectCard.module.css";
 import { FaPencilAlt, FaBook } from "react-icons/fa"; // Import icons
 import Projects from "./components/Projects";

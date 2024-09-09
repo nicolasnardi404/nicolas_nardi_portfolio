@@ -10,7 +10,7 @@
 }
 
 body {
-  margin: 0;
+  margin: 40px;
   background-color: var(--deep-purple);
   color: var(--sunny-yellow);
   font-size: 16px;

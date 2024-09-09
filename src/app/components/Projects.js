@@ -1,19 +1,26 @@
 "use client"; // Ensure this is at the very top of the file
 
-import React, { useState } from "react";
-import Image from "next/image";
+import React, { useState, useRef } from "react";
 import styles from "../styles/Projects.module.css";
 import ProjectCard from "./ProjectCard";
-import ProjectModal from "./ProjectModal";
-import { FaLinkedin, FaGithub } from "react-icons/fa";
+import ProjectDetails from "./ProjectDetails";
+import {
+  FaLinkedin,
+  FaGithub,
+  FaChevronLeft,
+  FaChevronRight,
+} from "react-icons/fa";
 
 const Projects = () => {
-  const [selectedProject, setSelectedProject] = useState(null);
+  const [selectedProjectIndex, setSelectedProjectIndex] = useState(null);
+  const projectDetailsRef = useRef(null);
 
   const projects = [
     {
       id: 1,
-      title: "RANDOM RAINBOW",
+      title: "Random Rainbow",
+      description: "Queer video art platform",
+      imageName: "/images/randomrainbow.png",
       tags: [
         "React",
         "JavaScript",
@@ -23,7 +30,6 @@ const Projects = () => {
         "Docker",
         "Deployment",
       ],
-      description: "queer video art platform",
       url: "https://www.randomrainbow.art",
       longDescription: `Random Rainbow is a cyber art project designed to connect queer video art through a random experience.
 
@@ -31,7 +37,9 @@ const Projects = () => {
     },
     {
       id: 2,
-      title: "I WANNA BE NADI NICOCO",
+      title: "I Wanna Be Nadi Nicoco",
+      description: "AI generative poetry based on the works of nadi nicoco",
+      imageName: "/images/iwannabenadinicoco.png",
       tags: [
         "JavaScript",
         "React",
@@ -41,7 +49,6 @@ const Projects = () => {
         "OpenAI",
         "Vercel",
       ],
-      description: "AI generative poetry based on the works of nadi nicoco",
       url: "https://www.iwannabenadinicoco.com",
       longDescription: `An AI-generated poetry blog inspired by the works of nadi nicoco. 
       Every day the machine selects a random topic then generates and posts a poem in Nadi Nicoco's style on the blog.`,
@@ -51,6 +58,7 @@ const Projects = () => {
       title: "NADI NICOCO",
       tags: ["HTML", "CSS", "JavaScript"],
       description: "artist portfolio",
+      imageName: "/images/nadinicoco.png",
       url: "https://www.nadinicoco.com",
       longDescription: `Nadi Nicoco is a Brazilian artist who works with text, image, and sound.
       This project is an experimental and interactive website that showcases their work.
@@ -62,6 +70,7 @@ const Projects = () => {
       title: "QUARTO AMBIENTE",
       tags: ["HTML", "CSS", "JavaScript"],
       description: "art collective portfolio",
+      imageName: "/images/quarto-ambiente.png",
       url: "https://www.quartoambiente.com.br",
       longDescription: `Quarto Ambiente is a Brazilian art collective that worked mainly between 2014-2016 in Porto Alegre, Brazil.
       They created experimental films, produced zines, and performed throughout the city.
@@ -69,6 +78,25 @@ const Projects = () => {
       It serves as an archive of the collective's work and a platform to share their knowledge.`,
     },
   ];
+
+  const handleProjectClick = (index) => {
+    setSelectedProjectIndex(index);
+    if (projectDetailsRef.current) {
+      projectDetailsRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const handleNavigation = (direction) => {
+    if (direction === "prev") {
+      setSelectedProjectIndex((prevIndex) =>
+        prevIndex > 0 ? prevIndex - 1 : projects.length - 1
+      );
+    } else if (direction === "next") {
+      setSelectedProjectIndex((prevIndex) =>
+        prevIndex < projects.length - 1 ? prevIndex + 1 : 0
+      );
+    }
+  };
 
   return (
     <div className={styles.projectsSection}>
@@ -101,22 +129,26 @@ const Projects = () => {
       </div>
 
       <div className={styles.projectsContainer}>
-        {projects.map((project) => (
+        {projects.map((project, index) => (
           <ProjectCard
             key={project.id}
             {...project}
-            onClick={() => setSelectedProject(project)}
-            size={project.size} // Add this line if you have a size property in your project objects
+            onClick={() => handleProjectClick(index)}
           />
         ))}
       </div>
 
-      {selectedProject && (
-        <ProjectModal
-          project={selectedProject}
-          onClose={() => setSelectedProject(null)}
-        />
-      )}
+      <div ref={projectDetailsRef} className={styles.projectDetailsContainer}>
+        {selectedProjectIndex !== null && (
+          <ProjectDetails
+            project={projects[selectedProjectIndex]}
+            onPrev={() => handleNavigation("prev")}
+            onNext={() => handleNavigation("next")}
+            isFirst={selectedProjectIndex === 0}
+            isLast={selectedProjectIndex === projects.length - 1}
+          />
+        )}
+      </div>
     </div>
   );
 };
