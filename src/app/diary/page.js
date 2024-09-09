@@ -3,12 +3,11 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import styles from "../styles/diary.module.css";
 import Link from "next/link";
-import { FaEdit, FaTrash } from "react-icons/fa"; // Import icons
+import { FaEdit, FaTrash } from "react-icons/fa";
+import DiaryEntryForm from "../components/DiaryEntryForm";
 
 export default function Diary() {
   const [entries, setEntries] = useState([]);
-  const [newTitle, setNewTitle] = useState("");
-  const [newContent, setNewContent] = useState("");
   const [editingId, setEditingId] = useState(null);
   const router = useRouter();
 
@@ -28,7 +27,6 @@ export default function Diary() {
       );
       if (response.ok) {
         const data = await response.json();
-        console.log(data);
         setEntries(data);
       } else {
         console.error("Failed to fetch entries");
@@ -38,8 +36,7 @@ export default function Diary() {
     }
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (entryData) => {
     try {
       const url = editingId
         ? `${process.env.NEXT_PUBLIC_API_URL}/api/diary/${editingId}`
@@ -52,11 +49,9 @@ export default function Diary() {
           "Content-Type": "application/json",
           "x-auth-token": localStorage.getItem("token"),
         },
-        body: JSON.stringify({ title: newTitle, content: newContent }),
+        body: JSON.stringify(entryData),
       });
       if (response.ok) {
-        setNewTitle("");
-        setNewContent("");
         setEditingId(null);
         fetchEntries();
       } else {
@@ -68,9 +63,11 @@ export default function Diary() {
   };
 
   const handleEdit = (entry) => {
-    setNewTitle(entry.title);
-    setNewContent(entry.content);
-    setEditingId(entry.id); // Make sure this is correctly set
+    setEditingId(entry.id);
+  };
+
+  const handleCancelEdit = () => {
+    setEditingId(null);
   };
 
   const handleDelete = async (id) => {
@@ -99,39 +96,11 @@ export default function Diary() {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>My Diary</h1>
-      <form onSubmit={handleSubmit} className={styles.form}>
-        <input
-          type="text"
-          value={newTitle}
-          onChange={(e) => setNewTitle(e.target.value)}
-          placeholder="Enter title..."
-          className={styles.input}
-          required
-        />
-        <textarea
-          value={newContent}
-          onChange={(e) => setNewContent(e.target.value)}
-          placeholder="Write your diary entry here..."
-          className={styles.textarea}
-          required
-        />
-        <button type="submit" className={styles.button}>
-          {editingId ? "Update Entry" : "Add Entry"}
-        </button>
-        {editingId && (
-          <button
-            type="button"
-            onClick={() => {
-              setEditingId(null);
-              setNewTitle("");
-              setNewContent("");
-            }}
-            className={styles.button}
-          >
-            Cancel Edit
-          </button>
-        )}
-      </form>
+      <DiaryEntryForm
+        onSubmit={handleSubmit}
+        editingEntry={entries.find((entry) => entry.id === editingId)}
+        onCancelEdit={handleCancelEdit}
+      />
       <div className={styles.entries}>
         {entries.map((entry) => (
           <div key={entry.id} className={styles.entry}>
@@ -155,7 +124,10 @@ export default function Diary() {
               </div>
             </div>
             <p>{entry.content}</p>
-            <small>{new Date(entry.createdAt).toLocaleString()}</small>
+            <div className={styles.entryFooter}>
+              <span className={styles.category}>{entry.category}</span>
+              <small>{new Date(entry.createdAt).toLocaleString()}</small>
+            </div>
           </div>
         ))}
       </div>

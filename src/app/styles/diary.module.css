@@ -139,3 +139,28 @@
   color: var(--neon-cyan);
   margin-top: 2rem;
 }
+
+.buttonGroup {
+  display: flex;
+  gap: 1rem;
+}
+
+.cancelButton {
+  background-color: var(--hot-pink);
+  color: white;
+}
+
+.entryFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.category {
+  background-color: var(--electric-blue);
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
