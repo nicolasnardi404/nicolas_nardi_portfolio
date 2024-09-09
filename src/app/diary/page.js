@@ -1,10 +1,12 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Header from "../components/Header";
 import styles from "../styles/diary.module.css";
 import Link from "next/link";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import DiaryEntryForm from "../components/DiaryEntryForm";
+import { formatText } from "../utils/formatText";
 
 export default function Diary() {
   const [entries, setEntries] = useState([]);
@@ -94,48 +96,53 @@ export default function Diary() {
   };
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>My Diary</h1>
-      <DiaryEntryForm
-        onSubmit={handleSubmit}
-        editingEntry={entries.find((entry) => entry.id === editingId)}
-        onCancelEdit={handleCancelEdit}
-      />
-      <div className={styles.entries}>
-        {entries.map((entry) => (
-          <div key={entry.id} className={styles.entry}>
-            <div className={styles.entryHeader}>
-              <h2>{entry.title}</h2>
-              <div className={styles.entryActions}>
-                <button
-                  onClick={() => handleEdit(entry)}
-                  className={`${styles.button} ${styles.editButton}`}
-                  title="Edit entry"
-                >
-                  <FaEdit />
-                </button>
-                <button
-                  onClick={() => handleDelete(entry.id)}
-                  className={`${styles.button} ${styles.deleteButton}`}
-                  title="Delete entry"
-                >
-                  <FaTrash />
-                </button>
+    <>
+      <Header />
+      <main className={styles.container}>
+        <h1 className={styles.title}>My Diary</h1>
+        <DiaryEntryForm
+          onSubmit={handleSubmit}
+          editingEntry={entries.find((entry) => entry.id === editingId)}
+          onCancelEdit={handleCancelEdit}
+        />
+        <div className={styles.entries}>
+          {entries.map((entry) => (
+            <div key={entry.id} className={styles.entry}>
+              <div className={styles.entryHeader}>
+                <h2>{entry.title}</h2>
+                <div className={styles.entryActions}>
+                  <button
+                    onClick={() => handleEdit(entry)}
+                    className={`${styles.button} ${styles.editButton}`}
+                    title="Edit entry"
+                  >
+                    <FaEdit />
+                  </button>
+                  <button
+                    onClick={() => handleDelete(entry.id)}
+                    className={`${styles.button} ${styles.deleteButton}`}
+                    title="Delete entry"
+                  >
+                    <FaTrash />
+                  </button>
+                </div>
+              </div>
+              <p
+                dangerouslySetInnerHTML={{ __html: formatText(entry.content) }}
+              />
+              <div className={styles.entryFooter}>
+                <span className={styles.category}>
+                  {entry.category.toUpperCase()}
+                </span>
+                <small>{new Date(entry.createdAt).toLocaleString()}</small>
               </div>
             </div>
-            <p>{entry.content}</p>
-            <div className={styles.entryFooter}>
-              <span className={styles.category}>
-                {entry.category.toUpperCase()}
-              </span>
-              <small>{new Date(entry.createdAt).toLocaleString()}</small>
-            </div>
-          </div>
-        ))}
-      </div>
-      <Link href="/public-diary" className={styles.link}>
-        View Public Entries
-      </Link>
-    </div>
+          ))}
+        </div>
+        <Link href="/public-diary" className={styles.link}>
+          View Public Entries
+        </Link>
+      </main>
+    </>
   );
 }

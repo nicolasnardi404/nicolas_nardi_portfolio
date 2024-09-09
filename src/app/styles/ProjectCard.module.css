@@ -37,8 +37,8 @@
 }
 
 .tag {
-  background-color: var(--electric-blue);
-  color: var(--sunny-yellow);
+  background-color: var(--neon-cyan);
+  color: var(--deep-purple);
   padding: 0.3rem 0.6rem;
   border-radius: 15px;
   font-size: 0.8rem;
