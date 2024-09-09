@@ -121,12 +121,6 @@
     text-align: center;
   }
   
-  .projects-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: center; /* Center the cards horizontally */
-  }
   
 
 .titleSection{
@@ -247,7 +241,7 @@
     transform: scale(1.05);
   }
 
-  .projectsContainer {
+  .projectsContainer{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
