@@ -1,6 +1,7 @@
 "use client"; // Ensure this is at the very top of the file
 
 import React, { useState } from "react";
+import Image from "next/image"; // Import Next.js Image component
 import ProjectCard from "./ProjectCard";
 import ProjectModal from "./ProjectModal";
 import "../styles/Projects.css";
@@ -70,12 +71,6 @@ const Projects = () => {
 
   return (
     <div className="projects-section" id="projects">
-      <img
-        className="profile-img"
-        src="/images/nicolas.jpg" // Update this line
-        alt="picture of nicolas nardi"
-      />
-      <h1>Nicolas Nardi (They/Them) - Web Developer and Artist</h1>
       <h3>
         Nicolas is a web developer and artist who blends technology with
         creative expression. They work on projects like an AI tool that
