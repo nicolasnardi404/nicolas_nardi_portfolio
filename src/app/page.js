@@ -34,7 +34,7 @@ export default function Home() {
           <h1 className={styles.title}>Nicolas Nardi (They/Them)</h1>
           <h3 className={styles.subtitle}>Web Developer and Artist</h3>
 
-          <nav className={styles.nav}>
+          {/* <nav className={styles.nav}>
             {isLoggedIn && (
               <Link href="/diary" className={styles.navLink}>
                 <FaPencilAlt className={styles.icon} />
@@ -45,7 +45,7 @@ export default function Home() {
               <FaBook className={styles.icon} />
               Code Diary
             </Link>
-          </nav>
+          </nav> */}
         </div>
       </header>
       <main className={styles.main}>

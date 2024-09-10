@@ -88,6 +88,16 @@
   .nav {
     margin-top: 1rem;
   }
+
+  .socialLinks {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .socialLink {
+    width: 100%;
+    max-width: 200px; /* Limit the maximum width on small screens */
+  }
 }
 
 @media (max-width: 480px) {
@@ -141,6 +151,7 @@
     width: 100%;
     max-width: 500px; /* Increased max-width for larger cards */
     justify-self: center; /* Center the card within its grid cell */
+    background-color: red;
   }
   
   .project-card:hover {
@@ -226,22 +237,41 @@
   }
 
   .socialLink {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--neon-cyan);
+    border: none;
+    border-radius: 25px;
     color: var(--deep-purple);
     text-decoration: none;
+    font-size: 1rem;
     font-weight: 600;
-    padding: 0.5rem 1rem;
-    border: 2px solid var(--deep-purple);
-    border-radius: 25px;
+    cursor: pointer;
     transition: all 0.3s ease;
+    min-width: 120px; /* Ensure a minimum width for consistency */
+    justify-content: center; /* Center the text and icon */
   }
 
   .socialLink:hover {
-    background-color: var(--deep-purple);
-    color: var(--neon-cyan);
-    transform: scale(1.05);
+    background-color: var(--sunny-yellow);
+  }
+
+  .socialLink svg {
+    margin-right: 0.5rem;
+  }
+
+  /* Ensure button behaves like a link */
+  button.socialLink {
+    font-family: inherit;
+    background-color: var(--neon-cyan);
+    color: var(--deep-purple);
+    border: none;
+    outline: none;
+  }
+
+  button.socialLink:hover {
+    background-color: var(--sunny-yellow);
   }
 
   .projectsContainer {
