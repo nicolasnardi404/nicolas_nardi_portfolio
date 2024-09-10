@@ -6,7 +6,7 @@ import styles from "../styles/diary.module.css";
 import Link from "next/link";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import DiaryEntryForm from "../components/DiaryEntryForm";
-import { formatText } from "../utils/formatText";
+import { formatText } from "../Utils/formatText";
 
 export default function Diary() {
   const [entries, setEntries] = useState([]);

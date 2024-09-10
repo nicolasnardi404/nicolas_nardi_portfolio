@@ -5,7 +5,6 @@ import Image from "next/image";
 // import styles from "./styles/publicDiary.module.css";
 import styles from "./styles/projects.module.css";
 import "./styles/App.css";
-import "./styles/Projects.css";
 import "./styles/ProjectCard.module.css";
 import { FaPencilAlt, FaBook } from "react-icons/fa"; // Import icons
 import Projects from "./components/Projects";
@@ -34,7 +33,7 @@ export default function Home() {
           <h1 className={styles.title}>Nicolas Nardi (They/Them)</h1>
           <h3 className={styles.subtitle}>Web Developer and Artist</h3>
 
-          <nav className={styles.nav}>
+          {/* <nav className={styles.nav}>
             {isLoggedIn && (
               <Link href="/diary" className={styles.navLink}>
                 <FaPencilAlt className={styles.icon} />
@@ -45,7 +44,7 @@ export default function Home() {
               <FaBook className={styles.icon} />
               Code Diary
             </Link>
-          </nav>
+          </nav> */}
         </div>
       </header>
       <main className={styles.main}>

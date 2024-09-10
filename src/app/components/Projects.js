@@ -1,7 +1,7 @@
 "use client"; // Ensure this is at the very top of the file
 
 import React, { useState, useRef } from "react";
-import styles from "../styles/Projects.module.css";
+import styles from "../styles/projects.module.css";
 import ProjectCard from "./ProjectCard";
 import ProjectDetails from "./ProjectDetails";
 import {
@@ -11,6 +11,7 @@ import {
   FaChevronRight,
   FaPencilAlt,
   FaBook,
+  FaEnvelope,
 } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
@@ -18,11 +19,12 @@ import Link from "next/link";
 const Projects = () => {
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(null);
   const projectDetailsRef = useRef(null);
+  const [showEmail, setShowEmail] = useState(false);
 
   const projects = [
     {
       id: 1,
-      title: "Random Rainbow",
+      title: "RANDOM RAINBOW",
       description: "Queer video art platform",
       imageName: "/images/randomrainbow.png",
       tags: [
@@ -41,7 +43,7 @@ const Projects = () => {
     },
     {
       id: 2,
-      title: "I Wanna Be Nadi Nicoco",
+      title: "I WANNA BE NADI NICOCO",
       description: "AI generative poetry based on the works of nadi nicoco",
       imageName: "/images/iwannabenadinicoco.png",
       tags: [
@@ -129,6 +131,12 @@ const Projects = () => {
           >
             <FaGithub /> GitHub
           </a>
+          <button
+            onClick={() => setShowEmail(!showEmail)}
+            className={styles.socialLink}
+          >
+            <FaEnvelope /> {showEmail ? "nicolasnardi404@gmail.com" : "Email"}
+          </button>
         </div>
       </div>
       <h1 className={styles.projectsTitle}>Projects:</h1>
