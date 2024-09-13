@@ -98,6 +98,10 @@
     width: 100%;
     max-width: 200px; /* Limit the maximum width on small screens */
   }
+
+  button.socialLink {
+    font-size: 0.9rem; /* Slightly reduce font size on small screens */
+  }
 }
 
 @media (max-width: 480px) {
@@ -112,6 +116,10 @@
 
   .subtitle {
     font-size: 1rem;
+  }
+
+  button.socialLink {
+    font-size: 0.8rem; /* Further reduce font size on very small screens */
   }
 }
 
@@ -251,6 +259,10 @@
     transition: all 0.3s ease;
     min-width: 120px; /* Ensure a minimum width for consistency */
     justify-content: center; /* Center the text and icon */
+    max-width: 100%; /* Ensure it doesn't exceed its container */
+    overflow: hidden; /* Hide overflow */
+    text-overflow: ellipsis; /* Add ellipsis for overflowing text */
+    white-space: nowrap; /* Prevent wrapping */
   }
 
   .socialLink:hover {
@@ -268,6 +280,11 @@
     color: var(--deep-purple);
     border: none;
     outline: none;
+    white-space: normal; /* Allow text to wrap */
+    height: auto; /* Allow height to adjust */
+    min-height: 40px; /* Minimum height to match other buttons */
+    padding: 0.5rem;
+    word-break: break-word; /* Break long words if necessary */
   }
 
   button.socialLink:hover {
