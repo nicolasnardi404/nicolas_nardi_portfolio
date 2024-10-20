@@ -24,8 +24,26 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
+      title: "CYBER PLANTA",
+      tags: [
+        "Python",
+        "React",
+        "JavaScript",
+        "Multi Modal AI",
+        "LangChain",
+        "RAG",
+        "Hugging Face",
+        "OpenAI",
+      ],
+      description: "Permaculture Chat Bot",
+      imageName: "/images/cyberplanta.png",
+      url: "https://www.cyberplanta.com",
+      longDescription: `Cyber Planta is an AI-driven project focused on sharing knowledge about bio-agriculture, fungi, and eco-feminism. The platform features a specialized chatbot that engages users in discussions and provides AI-generated articles and videos to raise awareness about biodiversity and sustainability. `,
+    },
+    {
+      id: 2,
       title: "RANDOM RAINBOW",
-      description: "Queer video art platform",
+      description: "Queer Video Art Platform",
       imageName: "/images/randomrainbow.png",
       tags: [
         "React",
@@ -42,9 +60,9 @@ const Projects = () => {
       The application features a "Random" button that when clicked selects a random video from the database and displays it to the user.`,
     },
     {
-      id: 2,
+      id: 3,
       title: "I WANNA BE NADI NICOCO",
-      description: "AI generative poetry based on the works of nadi nicoco",
+      description: "AI Generative Poetry Based on the works of Nadi Nicoco",
       imageName: "/images/iwannabenadinicoco.png",
       tags: [
         "JavaScript",
@@ -56,14 +74,14 @@ const Projects = () => {
         "Vercel",
       ],
       url: "https://www.iwannabenadinicoco.com",
-      longDescription: `An AI-generated poetry blog inspired by the works of nadi nicoco. 
+      longDescription: `An AI-generated poetry blog inspired by the works of Nadi Nicoco. 
       Every day the machine selects a random topic then generates and posts a poem in Nadi Nicoco's style on the blog.`,
     },
     {
-      id: 3,
+      id: 4,
       title: "NADI NICOCO",
       tags: ["HTML", "CSS", "JavaScript"],
-      description: "artist portfolio",
+      description: "Artist Portfolio",
       imageName: "/images/nadinicoco.png",
       url: "https://www.nadinicoco.com",
       longDescription: `Nadi Nicoco is a Brazilian artist who works with text, image, and sound.
@@ -72,10 +90,10 @@ const Projects = () => {
       The website serves as a dynamic portfolio, highlighting the artist's diverse creative output.`,
     },
     {
-      id: 4,
+      id: 5,
       title: "QUARTO AMBIENTE",
       tags: ["HTML", "CSS", "JavaScript"],
-      description: "art collective portfolio",
+      description: "Art Collective Portfolio",
       imageName: "/images/quarto-ambiente.png",
       url: "https://www.quartoambiente.com.br",
       longDescription: `Quarto Ambiente is a Brazilian art collective that worked mainly between 2014-2016 in Porto Alegre, Brazil.
@@ -108,11 +126,17 @@ const Projects = () => {
     <div className={styles.projectsSection}>
       <div className={styles.introCard}>
         <p className={styles.introText}>
-          Nicolas is a web developer and artist who blends technology with
-          creative expression. They work on projects like an AI tool that
-          generates and refines poems, which are posted daily on a blog. They
-          also manage Random Rainbow, a platform dedicated to showcasing queer
-          video art and supporting artists in sharing their work.
+          Nicolas Nardi is a web developer, permaculture gardener, and artist
+          who blends technology with creative expression. Through their
+          AI-driven project, Cyber Planta, Nicolas focuses on sharing knowledge
+          about bio-agriculture, fungi, and eco-feminism, featuring a
+          specialized chatbot and AI-generated content to raise awareness about
+          biodiversity and sustainability. They also manage Random Rainbow, a
+          platform dedicated to showcasing queer video art and supporting
+          artists in sharing their work. Additionally, Nicolas has worked on a
+          poetry machine using AI tools that generates and refines poems based
+          on their own poetry, with new poems generated and posted daily on a
+          blog.
         </p>
         <div className={styles.socialLinks}>
           <a
@@ -142,11 +166,12 @@ const Projects = () => {
       <h1 className={styles.projectsTitle}>Projects:</h1>
       <div className={styles.projectsContainer}>
         {projects.map((project, index) => (
-          <ProjectCard
-            key={project.id}
-            {...project}
-            onClick={() => handleProjectClick(index)}
-          />
+          <div className={styles.projectCard} key={project.id}>
+            <ProjectCard
+              {...project}
+              onClick={() => handleProjectClick(index)}
+            />
+          </div>
         ))}
       </div>
 

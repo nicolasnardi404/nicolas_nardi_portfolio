@@ -31,7 +31,9 @@ export default function Home() {
         </div>
         <div className={styles.titleSection}>
           <h1 className={styles.title}>Nicolas Nardi (They/Them)</h1>
-          <h3 className={styles.subtitle}>Web Developer and Artist</h3>
+          <h3 className={styles.subtitle}>
+            Sofware Developer, Bio Gardener and Artist
+          </h3>
 
           {/* <nav className={styles.nav}>
             {isLoggedIn && (
