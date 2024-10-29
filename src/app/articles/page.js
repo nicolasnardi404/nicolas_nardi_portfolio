@@ -19,9 +19,9 @@ export default async function Articles() {
         <main className={styles.container}>
           <div className={styles.header}>
             <div className={styles.titleContainer}>
-              <h1 className={styles.title}>Code Articles</h1>
+              <h1 className={styles.title}>Code Diary</h1>
               <p className={styles.description}>
-                Technical articles and coding insights.
+                This is a public diary of my coding journey.
               </p>
             </div>
           </div>
@@ -30,7 +30,7 @@ export default async function Articles() {
             {response.items.map((item) => (
               <div key={item.sys.id} className={styles.entry}>
                 <h2>{item.fields.title}</h2>
-                <p>{item.fields.diary}</p>
+                <p className={styles.diary}>{item.fields.diary}</p>
                 <div className={styles.entryFooter}>
                   <div className={styles.categories}>
                     {Array.isArray(item.fields.category) &&

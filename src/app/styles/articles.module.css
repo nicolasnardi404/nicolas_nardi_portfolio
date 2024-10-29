@@ -4,26 +4,76 @@
   padding: 2rem;
   background-color: var(--deep-purple);
   color: var(--sunny-yellow);
+  border-radius: 8px;
+  border: 3px solid var(--neon-cyan);
+  box-shadow: 0 0 20px rgba(59, 244, 251, 0.5);
+  min-height: calc(100vh - 4rem); /* Adjust for top and bottom margin */
 }
 
 .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 2rem;
 }
 
 .titleContainer {
-  text-align: center;
-  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .title {
+  color: var(--sunny-yellow);
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
-  color: var(--neon-cyan);
+  text-shadow: 2px 2px var(--deep-purple);
 }
 
 .description {
+  color: var(--neon-cyan);
+  font-size: 1rem;
+  font-style: italic;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.navLink {
+  background-color: var(--neon-cyan);
+  color: var(--deep-purple);
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.navLink:hover {
+  background-color: var(--sunny-yellow);
+  transform: translateY(-2px);
+}
+
+.categoryFilter {
+  margin-bottom: 2rem;
+}
+
+.categories{
+  display: flex;
+  gap: 20px;
+  
+}
+
+.categoryFilter select {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  background-color: var(--deep-purple);
   color: var(--sunny-yellow);
-  font-size: 1.1rem;
+  border: 2px solid var(--neon-cyan);
+  border-radius: 8px;
 }
 
 .entries {
@@ -46,14 +96,17 @@
 }
 
 .entry h2 {
-  margin-bottom: 1rem;
+  margin: 0;
+  font-size: 1.5rem;
   color: var(--neon-cyan);
+  margin-bottom: 0.5rem;
 }
 
 .entry p {
+  margin: 10px 0;
   color: var(--sunny-yellow);
+  font-size: 1.1rem;
   line-height: 1.6;
-  margin-bottom: 1rem;
 }
 
 .entryFooter {
@@ -61,14 +114,6 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--neon-cyan);
-}
-
-.categories {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
 }
 
 .category {
@@ -78,18 +123,25 @@
   border-radius: 20px;
   font-size: 0.8rem;
   font-weight: bold;
+  text-transform: uppercase;
 }
 
 .entry small {
   color: var(--mint-green);
 }
 
+.diary {
+  white-space: pre-wrap;
+  line-height: 1.6;
+}
+
 @media (max-width: 768px) {
-  .container {
-    padding: 1rem;
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
   }
-  
-  .title {
-    font-size: 2rem;
+
+  .nav {
+    margin-top: 1rem;
   }
 }
