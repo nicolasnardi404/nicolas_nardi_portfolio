@@ -35,18 +35,18 @@ export default function Home() {
             Sofware Developer, Bio Gardener and Artist
           </h3>
 
-          {/* <nav className={styles.nav}>
-            {isLoggedIn && (
+          <nav className={styles.nav}>
+            {/* {isLoggedIn && (
               <Link href="/diary" className={styles.navLink}>
                 <FaPencilAlt className={styles.icon} />
                 Write
               </Link>
-            )}
-            <Link href="/public-diary" className={styles.navLink}>
+            )} */}
+            <Link href="/articles" className={styles.navLink}>
               <FaBook className={styles.icon} />
               Code Diary
             </Link>
-          </nav> */}
+          </nav>
         </div>
       </header>
       <main className={styles.main}>
