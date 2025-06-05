@@ -73,7 +73,7 @@ const Projects = () => {
         "OpenAI",
         "Vercel",
       ],
-      url: "https://www.iwannabenadinicoco.com",
+      url: "https://www.iwannabe.nadinicoco.com",
       longDescription: `An AI-generated poetry blog inspired by the works of Nadi Nicoco. 
       Every day the machine selects a random topic then generates and posts a poem in Nadi Nicoco's style on the blog.`,
     },
