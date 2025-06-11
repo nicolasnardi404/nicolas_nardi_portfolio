@@ -492,14 +492,15 @@
 
 .projectTitle {
   color: var(--win95-black);
-  font-size: 14px;
+  font-size: 1.2em;
   margin: 0 0 0.5rem 0;
   font-weight: bold;
+  
 }
 
 .projectDescription {
   color: var(--win95-black);
-  font-size: 12px;
+  font-size: 0.8em;
   margin: 0 0 0.5rem 0;
   line-height: 1.4;
 }

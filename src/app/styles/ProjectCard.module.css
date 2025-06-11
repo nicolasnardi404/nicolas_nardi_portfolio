@@ -42,6 +42,7 @@
 
 .projectContent {
   flex: 1;
+  background-color: red !important;
 }
 
 .projectTitle {
