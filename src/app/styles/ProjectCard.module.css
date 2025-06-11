@@ -1,46 +1,93 @@
 .projectCard {
-  background-color: var(--deep-purple);
-  border: 3px solid var(--neon-cyan);
-  border-radius: 15px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
+  background: white;
+  border: 2px solid var(--win95-black);
+  border-right-color: var(--win95-white);
+  border-bottom-color: var(--win95-white);
+  padding: 16px;
   cursor: pointer;
-  color: var(--sunny-yellow);
-  display: flex;
-  flex-direction: column;
-  height: 100%;
 }
 
 .projectCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  background: var(--win95-light-gray);
+}
+
+.projectCard.grid {
+  display: flex;
+  flex-direction: column;
+}
+
+.projectCard.list {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.projectIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--win95-navy);
+}
+
+.grid .projectIcon {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 8px;
+}
+
+.list .projectIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.projectContent {
+  flex: 1;
 }
 
 .projectTitle {
-  font-size: 1.4rem;
-  margin-bottom: 0.75rem;
-  color: var(--neon-cyan);
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  color: var(--win95-text);
 }
 
 .projectDescription {
-  font-size: 1rem;
-  margin-bottom: 1rem;
-  flex-grow: 1;
+  margin: 0 0 8px 0;
+  font-size: 12px;
+  color: var(--win95-text);
 }
 
-.tags {
+.tagsContainer {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: auto;
+  gap: 4px;
 }
 
 .tag {
-  background-color: var(--neon-cyan);
-  color: var(--deep-purple);
-  padding: 0.3rem 0.6rem;
-  border-radius: 15px;
-  font-size: 0.8rem;
-  font-weight: 600;
+  background: var(--win95-navy);
+  color: white;
+  padding: 2px 6px;
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  .projectCard {
+    padding: 12px;
+  }
+
+  .grid .projectIcon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .projectTitle {
+    font-size: 12px;
+  }
+
+  .projectDescription {
+    font-size: 11px;
+  }
+
+  .tag {
+    font-size: 10px;
+  }
 }

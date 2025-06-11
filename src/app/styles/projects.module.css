@@ -1,3 +1,6 @@
+/* Windows 95 Theme Variables */
+/* Remove the :root block since it's now in globals.css */
+
 .profileImg {
     width: 150px;
     height: 150px;
@@ -148,212 +151,453 @@
   margin-bottom: 2rem;
 }
 
-  /* Styling for individual project cards */
-  .project-card {
-    background-color: var(--deep-purple);
-    border: 3px solid var(--neon-cyan);
-    border-radius: 8px;
-    padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-    width: 100%;
-    max-width: 500px; /* Increased max-width for larger cards */
-    justify-self: center; /* Center the card within its grid cell */
-    background-color: red;
+.projectsSection {
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem auto;
+  background: var(--retro-dark);
+  border: 2px solid var(--retro-cyan);
+  box-shadow: 0 0 20px var(--retro-purple);
+  position: relative;
+  overflow: hidden;
+}
+
+.projectsSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(255, 255, 255, 0.05) 2px,
+    rgba(255, 255, 255, 0.05) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.titleBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, var(--retro-purple) 0%, var(--retro-cyan) 100%);
+  padding: 4px 8px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.titleBarText {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.titleBarButtons {
+  display: flex;
+  gap: 4px;
+}
+
+.titleBarButton {
+  width: 16px;
+  height: 16px;
+  border: 1px solid white;
+  background: var(--retro-dark);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.titleBarButton:hover {
+  background: var(--retro-cyan);
+  transform: scale(1.1);
+}
+
+.toolbar {
+  background: var(--retro-dark);
+  padding: 4px 8px;
+  display: flex;
+  gap: 8px;
+  border-bottom: 2px solid var(--retro-cyan);
+}
+
+.toolbarButton {
+  background: transparent;
+  border: 1px solid var(--retro-cyan);
+  color: var(--retro-cyan);
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.3s ease;
+}
+
+.toolbarButton:hover {
+  background: var(--retro-cyan);
+  color: var(--retro-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 0 10px var(--retro-cyan);
+}
+
+.introCard {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1.5rem;
+  margin: 1rem;
+  border: 2px solid var(--retro-cyan);
+  position: relative;
+  overflow: hidden;
+}
+
+.introCard::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%
+  );
+  animation: chromeShine 3s linear infinite;
+}
+
+.introText {
+  color: var(--retro-yellow);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 5px var(--retro-yellow);
+}
+
+.socialLinks {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.socialLink {
+  background: transparent;
+  border: 1px solid var(--retro-purple);
+  color: var(--retro-purple);
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.socialLink:hover {
+  background: var(--retro-purple);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px var(--retro-purple);
+}
+
+.projectsContainer {
+  padding: 1rem;
+  display: grid;
+  gap: 1rem;
+  position: relative;
+}
+
+.projectsContainer.grid {
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.projectsContainer.list {
+  grid-template-columns: 1fr;
+}
+
+.projectTypeIcon {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+  color: var(--retro-cyan);
+}
+
+.statusBar {
+  background: var(--retro-dark);
+  padding: 4px 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 2px solid var(--retro-cyan);
+  color: var(--retro-yellow);
+  font-size: 0.8rem;
+}
+
+.statusBarMemory {
+  color: var(--retro-purple);
+  font-family: monospace;
+}
+
+@keyframes chromeShine {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .projectsContainer.grid {
+    grid-template-columns: 1fr;
   }
   
-  .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  .project-card.large {
-    flex-basis: 300px; /* Larger cards */
-  }
-  
-  .project-card.small {
-    flex-basis: 200px; /* Smaller cards */
-  }
-  
-  .section-title {
-    margin-bottom: 1rem;
-  }
-  
-  .social-links {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
-  }
-
-  .social-links a {
-    color: var(--neon-cyan);
-    text-decoration: none;
-    font-weight: bold;
-    padding: 0.5rem 1rem;
-    border: 2px solid var(--neon-cyan);
-    border-radius: 20px;
-    transition: all 0.3s ease;
-  }
-
-  .social-links a:hover {
-    background-color: var(--neon-cyan);
-    color: var(--deep-purple);
-  }
-
-  .projectsSection {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem 0;
-  }
-
-  .introCard {
-    background-color: var(--neon-cyan);
-    border: 3px solid var(--sunny-yellow);
-    border-radius: 15px;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    width: 80%;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
-  }
-
-  .introCard:hover {
-    transform: translateY(-5px);
-  }
-
-  .introTitle {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    color: var(--deep-purple);
-    text-align: center;
-  }
-
-  .introText {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: var(--deep-purple);
-    text-align: center;
-    margin-bottom: 1.5rem;
-  }
-
   .socialLinks {
-    display: flex;
     justify-content: center;
-    gap: 1.5rem;
+  }
+  
+  .introText {
+    font-size: 0.9rem;
+  }
+}
+
+/* Rest of the cyberpunk styling */
+
+.container {
+  width: 100%;
+  min-height: calc(100vh - 32px);
+  padding: 0 2rem;
+  background: var(--win95-bg);
+}
+
+.window {
+  background: var(--win95-gray);
+  border: 2px solid var(--win95-white);
+  border-right-color: var(--win95-black);
+  border-bottom-color: var(--win95-black);
+  padding: 2px;
+  margin: 0;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  font-family: 'MS Sans Serif', sans-serif;
+}
+
+.titleBar {
+  background: var(--win95-navy);
+  color: var(--win95-white);
+  padding: 2px 3px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: 11px;
+}
+
+.titleBarText {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.titleBarButtons {
+  display: flex;
+  gap: 2px;
+}
+
+.titleBarButton {
+  width: 16px;
+  height: 14px;
+  background: var(--win95-gray);
+  border: 1px solid var(--win95-white);
+  border-right-color: var(--win95-black);
+  border-bottom-color: var(--win95-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  cursor: pointer;
+  padding: 2px;
+}
+
+.titleBarButton:active {
+  border: 1px solid var(--win95-black);
+  border-right-color: var(--win95-white);
+  border-bottom-color: var(--win95-white);
+  padding: 3px 1px 1px 3px;
+}
+
+.toolbar {
+  background: var(--win95-gray);
+  padding: 2px;
+  display: flex;
+  gap: 2px;
+  border-bottom: 1px solid var(--win95-dark-gray);
+}
+
+.toolbarButton {
+  background: var(--win95-gray);
+  border: 1px solid var(--win95-white);
+  border-right-color: var(--win95-black);
+  border-bottom-color: var(--win95-black);
+  padding: 3px 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.toolbarButton:active {
+  border: 1px solid var(--win95-black);
+  border-right-color: var(--win95-white);
+  border-bottom-color: var(--win95-white);
+  padding: 4px 5px 2px 7px;
+}
+
+.introCard {
+  background: var(--win95-white);
+  margin: 8px;
+  padding: 12px;
+  border: 1px solid var(--win95-black);
+}
+
+.introText {
+  font-size: 11px;
+  line-height: 1.4;
+  margin-bottom: 12px;
+  color: var(--win95-black);
+}
+
+.socialLinks {
+  display: flex;
+  gap: 12px;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--win95-navy);
+  text-decoration: none;
+  font-size: 11px;
+  cursor: pointer;
+  background: var(--win95-gray);
+  border: 1px solid var(--win95-white);
+  border-right-color: var(--win95-black);
+  border-bottom-color: var(--win95-black);
+  padding: 3px 6px;
+}
+
+.socialLink:active {
+  border: 1px solid var(--win95-black);
+  border-right-color: var(--win95-white);
+  border-bottom-color: var(--win95-white);
+  padding: 4px 5px 2px 7px;
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.projectCard {
+  background: var(--win95-gray);
+  border: 2px solid var(--win95-white);
+  border-right-color: var(--win95-black);
+  border-bottom-color: var(--win95-black);
+  padding: 1rem;
+  cursor: pointer;
+  transition: background-color 0.1s;
+}
+
+.projectCard:hover,
+.projectCard:focus {
+  outline: 1px dotted var(--win95-black);
+  outline-offset: -1px;
+}
+
+.projectCard.list {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.projectIcon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+  color: var(--win95-black);
+}
+
+.list .projectIcon {
+  margin-bottom: 0;
+}
+
+.projectContent {
+  flex: 1;
+}
+
+.projectTitle {
+  color: var(--win95-black);
+  font-size: 14px;
+  margin: 0 0 0.5rem 0;
+  font-weight: bold;
+}
+
+.projectDescription {
+  color: var(--win95-black);
+  font-size: 12px;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.4;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.tag {
+  background: var(--win95-navy);
+  color: var(--win95-white);
+  font-size: 11px;
+  padding: 1px 4px;
+}
+
+.statusBar {
+  background: var(--win95-gray);
+  border-top: 1px solid var(--win95-dark-gray);
+  padding: 2px 4px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
   }
 
-  .socialLink {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.5rem 1rem;
-    background-color: var(--neon-cyan);
-    border: none;
-    border-radius: 25px;
-    color: var(--deep-purple);
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    min-width: 120px; /* Ensure a minimum width for consistency */
-    justify-content: center; /* Center the text and icon */
-    max-width: 100%; /* Ensure it doesn't exceed its container */
-    overflow: hidden; /* Hide overflow */
-    text-overflow: ellipsis; /* Add ellipsis for overflowing text */
-    white-space: nowrap; /* Prevent wrapping */
+  .projectsGrid {
+    grid-template-columns: 1fr;
   }
 
-  .socialLink:hover {
-    background-color: var(--sunny-yellow);
+  .projectCard.list {
+    flex-direction: column;
   }
 
-  .socialLink svg {
-    margin-right: 0.5rem;
+  .list .projectIcon {
+    margin-bottom: 0.5rem;
   }
-
-  /* Ensure button behaves like a link */
-  button.socialLink {
-    font-family: inherit;
-    background-color: var(--neon-cyan);
-    color: var(--deep-purple);
-    border: none;
-    outline: none;
-    white-space: normal; /* Allow text to wrap */
-    height: auto; /* Allow height to adjust */
-    min-height: 40px; /* Minimum height to match other buttons */
-    padding: 0.5rem;
-    word-break: break-word; /* Break long words if necessary */
-  }
-
-  button.socialLink:hover {
-    background-color: var(--sunny-yellow);
-  }
-
-  .projectsContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Center the items horizontally */
-    gap: 20px;
-  }
-
-  .projectCard {
-    flex: 0 0 30%; /* Default width for larger screens */
-    margin-bottom: 20px; /* Space between rows */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
-  }
-
-  @media (max-width: 768px) {
-    .projectCard {
-      flex: 0 0 45%; /* Adjust width for medium screens (e.g., tablets) */
-    }
-  }
-
-  @media (max-width: 480px) {
-    .projectCard {
-      flex: 0 0 100%; /* Full width for small screens (e.g., mobile devices) */
-    }
-  }
-
-  .projectDetailsContainer {
-    position: relative;
-    width: 100%;
-    min-height: 200px;
-    scroll-margin-top: 2rem;
-  }
-
-  .navButton {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: var(--neon-cyan);
-    color: var(--deep-purple);
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    z-index: 10;
-  }
-
-  .navButton:hover {
-    background-color: var(--sunny-yellow);
-  }
-
-  .navButton:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-
-  .prevButton {
-    left: -20px;
-  }
-
-  .nextButton {
-    right: -20px;
-  }
+}

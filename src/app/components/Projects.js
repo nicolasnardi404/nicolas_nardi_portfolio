@@ -1,190 +1,152 @@
 "use client"; // Ensure this is at the very top of the file
 
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import styles from "../styles/projects.module.css";
-import ProjectCard from "./ProjectCard";
-import ProjectDetails from "./ProjectDetails";
 import {
   FaLinkedin,
   FaGithub,
-  FaChevronLeft,
-  FaChevronRight,
-  FaPencilAlt,
-  FaBook,
   FaEnvelope,
+  FaFolder,
+  FaThLarge,
+  FaList,
+  FaRobot,
+  FaRainbow,
+  FaPencilAlt,
+  FaPalette,
+  FaHome,
 } from "react-icons/fa";
-import Image from "next/image";
-import Link from "next/link";
+
+const projects = [
+  {
+    id: 1,
+    title: "CYBER PLANTA",
+    tags: ["Python", "React", "JavaScript"],
+    description: "Permaculture Chat Bot",
+    icon: <FaRobot />,
+  },
+  {
+    id: 2,
+    title: "RANDOM RAINBOW",
+    description: "Queer Video Art Platform",
+    tags: ["React", "JavaScript", "Java"],
+    icon: <FaRainbow />,
+  },
+  {
+    id: 3,
+    title: "I WANNA BE NADI NICOCO",
+    description: "AI Generative Poetry",
+    tags: ["JavaScript", "React", "Node.js"],
+    icon: <FaPencilAlt />,
+  },
+  {
+    id: 4,
+    title: "NADI NICOCO",
+    tags: ["HTML", "CSS", "JavaScript"],
+    description: "Artist Portfolio",
+    icon: <FaPalette />,
+  },
+  {
+    id: 5,
+    title: "QUARTO AMBIENTE",
+    tags: ["HTML", "CSS", "JavaScript"],
+    description: "Art Collective Portfolio",
+    icon: <FaHome />,
+  },
+];
 
 const Projects = () => {
-  const [selectedProjectIndex, setSelectedProjectIndex] = useState(null);
-  const projectDetailsRef = useRef(null);
+  const [viewMode, setViewMode] = useState("grid");
   const [showEmail, setShowEmail] = useState(false);
 
-  const projects = [
-    {
-      id: 1,
-      title: "CYBER PLANTA",
-      tags: [
-        "Python",
-        "React",
-        "JavaScript",
-        "Multi Modal AI",
-        "LangChain",
-        "RAG",
-        "Hugging Face",
-        "OpenAI",
-      ],
-      description: "Permaculture Chat Bot",
-      imageName: "/images/cyberplanta.png",
-      url: "https://www.cyberplanta.com",
-      longDescription: `Cyber Planta is an AI-driven project focused on sharing knowledge about bio-agriculture, fungi, and eco-feminism. The platform features a specialized chatbot that engages users in discussions and provides AI-generated articles and videos to raise awareness about biodiversity and sustainability. `,
-    },
-    {
-      id: 2,
-      title: "RANDOM RAINBOW",
-      description: "Queer Video Art Platform",
-      imageName: "/images/randomrainbow.png",
-      tags: [
-        "React",
-        "JavaScript",
-        "Java",
-        "Spring Boot",
-        "PostgreSQL",
-        "Docker",
-        "Deployment",
-      ],
-      url: "https://www.randomrainbow.art",
-      longDescription: `Random Rainbow is a cyber art project designed to connect queer video art through a random experience.
-
-      The application features a "Random" button that when clicked selects a random video from the database and displays it to the user.`,
-    },
-    {
-      id: 3,
-      title: "I WANNA BE NADI NICOCO",
-      description: "AI Generative Poetry Based on the works of Nadi Nicoco",
-      imageName: "/images/iwannabenadinicoco.png",
-      tags: [
-        "JavaScript",
-        "React",
-        "Node.js",
-        "Express",
-        "PostgreSQL",
-        "OpenAI",
-        "Vercel",
-      ],
-      url: "https://www.iwannabe.nadinicoco.com",
-      longDescription: `An AI-generated poetry blog inspired by the works of Nadi Nicoco. 
-      Every day the machine selects a random topic then generates and posts a poem in Nadi Nicoco's style on the blog.`,
-    },
-    {
-      id: 4,
-      title: "NADI NICOCO",
-      tags: ["HTML", "CSS", "JavaScript"],
-      description: "Artist Portfolio",
-      imageName: "/images/nadinicoco.png",
-      url: "https://www.nadinicoco.com",
-      longDescription: `Nadi Nicoco is a Brazilian artist who works with text, image, and sound.
-      This project is an experimental and interactive website that showcases their work.
-      It features different pages where visitors can explore the various media Nadi Nicoco works with.
-      The website serves as a dynamic portfolio, highlighting the artist's diverse creative output.`,
-    },
-    {
-      id: 5,
-      title: "QUARTO AMBIENTE",
-      tags: ["HTML", "CSS", "JavaScript"],
-      description: "Art Collective Portfolio",
-      imageName: "/images/quarto-ambiente.png",
-      url: "https://www.quartoambiente.com.br",
-      longDescription: `Quarto Ambiente is a Brazilian art collective that worked mainly between 2014-2016 in Porto Alegre, Brazil.
-      They created experimental films, produced zines, and performed throughout the city.
-      This website showcases the collective's work and includes their zines for download and a gallery with the artists' work.
-      It serves as an archive of the collective's work and a platform to share their knowledge.`,
-    },
-  ];
-
-  const handleProjectClick = (index) => {
-    setSelectedProjectIndex(index);
-    if (projectDetailsRef.current) {
-      projectDetailsRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  const handleNavigation = (direction) => {
-    if (direction === "prev") {
-      setSelectedProjectIndex((prevIndex) =>
-        prevIndex > 0 ? prevIndex - 1 : projects.length - 1
-      );
-    } else if (direction === "next") {
-      setSelectedProjectIndex((prevIndex) =>
-        prevIndex < projects.length - 1 ? prevIndex + 1 : 0
-      );
-    }
-  };
-
   return (
-    <div className={styles.projectsSection}>
-      <div className={styles.introCard}>
-        <p className={styles.introText}>
-          Nicolas Nardi is a web developer, permaculture gardener, and artist
-          who blends technology with creative expression. Through their
-          AI-driven project, Cyber Planta, Nicolas focuses on sharing knowledge
-          about bio-agriculture, fungi, and eco-feminism, featuring a
-          specialized chatbot and AI-generated content to raise awareness about
-          biodiversity and sustainability. They also manage Random Rainbow, a
-          platform dedicated to showcasing queer video art and supporting
-          artists in sharing their work. Additionally, Nicolas has worked on a
-          poetry machine using AI tools that generates and refines poems based
-          on their own poetry, with new poems generated and posted daily on a
-          blog.
-        </p>
-        <div className={styles.socialLinks}>
-          <a
-            href="https://www.linkedin.com/in/nícolas-nardi"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.socialLink}
-          >
-            <FaLinkedin /> LinkedIn
-          </a>
-          <a
-            href="https://github.com/nicolasnardi404"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.socialLink}
-          >
-            <FaGithub /> GitHub
-          </a>
+    <div className={styles.container}>
+      <div className={styles.window}>
+        <div className={styles.titleBar}>
+          <div className={styles.titleBarText}>
+            <FaFolder size={12} />
+            My Portfolio - File Explorer
+          </div>
+        </div>
+
+        <div className={styles.toolbar}>
+          <button className={styles.toolbarButton}>
+            <FaFolder size={11} /> File
+          </button>
           <button
-            onClick={() => setShowEmail(!showEmail)}
-            className={styles.socialLink}
+            className={styles.toolbarButton}
+            onClick={() => setViewMode(viewMode === "grid" ? "list" : "grid")}
           >
-            <FaEnvelope /> {showEmail ? "nicolasnardi404@gmail.com" : "Email"}
+            {viewMode === "grid" ? (
+              <FaThLarge size={11} />
+            ) : (
+              <FaList size={11} />
+            )}
+            Grid View
           </button>
         </div>
-      </div>
-      <h1 className={styles.projectsTitle}>Projects:</h1>
-      <div className={styles.projectsContainer}>
-        {projects.map((project, index) => (
-          <div className={styles.projectCard} key={project.id}>
-            <ProjectCard
-              {...project}
-              onClick={() => handleProjectClick(index)}
-            />
-          </div>
-        ))}
-      </div>
 
-      <div ref={projectDetailsRef} className={styles.projectDetailsContainer}>
-        {selectedProjectIndex !== null && (
-          <ProjectDetails
-            project={projects[selectedProjectIndex]}
-            onPrev={() => handleNavigation("prev")}
-            onNext={() => handleNavigation("next")}
-            isFirst={selectedProjectIndex === 0}
-            isLast={selectedProjectIndex === projects.length - 1}
-          />
-        )}
+        <div className={styles.introCard}>
+          <p className={styles.introText}>
+            Nicolas Nardi is a web developer, permaculture gardener, and artist
+            who blends technology with creative expression. Through their
+            AI-driven project, Cyber Planta, Nicolas focuses on sharing
+            knowledge about bio-agriculture, fungi, and eco-feminism.
+          </p>
+          <div className={styles.socialLinks}>
+            <a
+              href="https://www.linkedin.com/in/nícolas-nardi"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.socialLink}
+            >
+              <FaLinkedin size={11} /> LinkedIn
+            </a>
+            <a
+              href="https://github.com/nicolasnardi404"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.socialLink}
+            >
+              <FaGithub size={11} /> GitHub
+            </a>
+            <button
+              onClick={() => setShowEmail(!showEmail)}
+              className={styles.socialLink}
+            >
+              <FaEnvelope size={11} />
+              {showEmail ? "nicolasnardi404@gmail.com" : "Email"}
+            </button>
+          </div>
+        </div>
+
+        <div className={styles.projectsGrid} data-view-mode={viewMode}>
+          {projects.map((project) => (
+            <div
+              key={project.id}
+              className={`${styles.projectCard} ${styles[viewMode]}`}
+            >
+              <div className={styles.projectIcon}>{project.icon}</div>
+              <div className={styles.projectContent}>
+                <h3 className={styles.projectTitle}>{project.title}</h3>
+                <p className={styles.projectDescription}>
+                  {project.description}
+                </p>
+                <div className={styles.tags}>
+                  {project.tags.map((tag, index) => (
+                    <span key={index} className={styles.tag}>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className={styles.statusBar}>
+          <span>{projects.length} items</span>
+          <span>3.72 MB free of 521 MB</span>
+        </div>
       </div>
     </div>
   );

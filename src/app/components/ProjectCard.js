@@ -1,22 +1,36 @@
 import React from "react";
-import styles from "../styles/ProjectCard.module.css";
+import styles from "../styles/projects.module.css";
 
-const ProjectCard = ({ title, tags, description, onClick, size }) => {
+const ProjectCard = ({
+  title,
+  description,
+  icon,
+  tags = [],
+  viewMode = "grid",
+  onClick,
+}) => {
   return (
     <div
       className={`${styles.projectCard} ${
-        size === "large" ? styles.large : styles.small
+        viewMode === "list" ? styles.list : ""
       }`}
       onClick={onClick}
+      role="button"
+      tabIndex={0}
     >
-      <h3 className={styles.projectTitle}>{title}</h3>
-      <p className={styles.projectDescription}>{description}</p>
-      <div className={styles.tags}>
-        {tags.map((tag, index) => (
-          <span key={index} className={styles.tag}>
-            {tag}
-          </span>
-        ))}
+      <div className={styles.projectIcon}>{icon}</div>
+      <div className={styles.projectContent}>
+        <h3 className={styles.projectTitle}>{title}</h3>
+        <p className={styles.projectDescription}>{description}</p>
+        {tags.length > 0 && (
+          <div className={styles.tags}>
+            {tags.slice(0, 3).map((tag, index) => (
+              <span key={index} className={styles.tag}>
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

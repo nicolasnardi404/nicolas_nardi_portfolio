@@ -1,24 +1,18 @@
-
-/* Updated color palette */
-:root {
-  --electric-blue: #4056F4;
-  --hot-pink: #FF3586;
-  --sunny-yellow: #FFBE0A;
-  --neon-cyan: #3BF4FB;
-  --mint-green: #47E5BC;
-  --deep-purple: #7D07AC; /* New color */
-}
-
+/* Windows 95 Theme */
 body {
-  margin: 40px;
-  background-color: var(--deep-purple);
-  color: var(--sunny-yellow);
-  font-size: 16px;
-  font-family: roboto, 'Arial', sans-serif;
-  min-height: 100vh; /* Ensure the background covers the full viewport height */
+  margin: 0;
+  padding: 8px;
+  background-color: var(--win95-bg);
+  color: var(--win95-text);
+  font-family: 'MS Sans Serif', 'Segoe UI', Tahoma, sans-serif;
+  font-size: 12px;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: unset;
 }
 
 @font-face {
-  font-family: roboto;
-  src: url('../../../public/fonts/RobotoCondensed-VariableFont_wght.ttf');
+  font-family: 'MS Sans Serif';
+  src: url('/fonts/ms-sans-serif.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }

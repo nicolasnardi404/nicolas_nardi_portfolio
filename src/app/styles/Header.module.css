@@ -1,65 +1,238 @@
 .header {
+  position: relative;
+  background: var(--win95-bg);
+  overflow: hidden;
   display: flex;
-  align-items: center;
-  padding: 1rem 2rem;
-  background-color: var(--deep-purple);
   justify-content: center;
-  margin: 2rem auto;
-  width: 100px;
-  height: 100px;
+  align-items: center;
+  padding: 2rem;
+  margin-bottom: 2rem;
 }
 
-.profileLink {
-  margin-right: 1.5rem;
+.profileSection {
   display: flex;
   align-items: center;
-  text-decoration: none;
-  transition: transform 0.3s ease;
-}
-
-.profileLink:hover {
-  transform: scale(1.05);
+  gap: 2rem;
+  background: var(--win95-gray);
+  padding: 1.5rem;
+  border: 2px solid var(--win95-white);
+  border-right-color: var(--win95-black);
+  border-bottom-color: var(--win95-black);
 }
 
 .profileImg {
-  border-radius: 50%;
-  border: 2px solid var(--neon-cyan);
-  transition: transform 0.3s ease;
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
+  border-radius: 8px;
+  border: 2px solid var(--win95-white);
+  border-right-color: var(--win95-black);
+  border-bottom-color: var(--win95-black);
+  object-fit: cover;
 }
 
-.profileImg:hover {
-  transform: scale(1.1);
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .title {
-  color: var(--sunny-yellow);
-  font-size: 1.5rem;
+  color: var(--win95-black);
+  font-size: 24px;
   margin: 0;
+}
+
+.subtitle {
+  color: var(--win95-black);
+  font-size: 16px;
+  margin: 0;
+}
+
+.desktopIcons {
+  padding: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 75px);
+  gap: 16px;
+  align-items: start;
+  justify-items: center;
+}
+
+.desktopIcon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 75px;
+  text-decoration: none;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.desktopIcon:hover,
+.desktopIcon:focus {
+  background: var(--win95-navy);
+  outline: 1px dotted var(--win95-black);
+  outline-offset: -1px;
+}
+
+.desktopIcon:hover .iconLabel,
+.desktopIcon:focus .iconLabel {
+  color: var(--win95-white);
+}
+
+.iconImage {
+  width: 32px;
+  height: 32px;
+  color: var(--win95-black);
+  display: block;
+  margin: 0 auto;
+}
+
+.iconLabel {
+  color: var(--win95-black);
+  font-size: 11px;
+  text-align: center;
+  word-wrap: break-word;
+  width: 100%;
+  line-height: 1.2;
+  text-shadow: 
+    1px 1px 0 var(--win95-white),
+    -1px -1px 0 var(--win95-white),
+    1px -1px 0 var(--win95-white),
+    -1px 1px 0 var(--win95-white);
+}
+
+.taskbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 28px;
+  background: var(--win95-gray);
+  border-top: 1px solid var(--win95-white);
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  z-index: 1000;
+}
+
+.startButton {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
   font-weight: bold;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  margin-right: 6px;
+  min-width: 54px;
+  background: var(--win95-gray);
+  border: 1px solid var(--win95-white);
+  border-right-color: var(--win95-black);
+  border-bottom-color: var(--win95-black);
+  color: var(--win95-black);
+  font-size: 11px;
+}
+
+.startButton:active {
+  border: 1px solid var(--win95-black);
+  border-right-color: var(--win95-white);
+  border-bottom-color: var(--win95-white);
+  padding: 3px 7px 1px 9px;
+}
+
+.taskbarButtons {
+  display: flex;
+  gap: 2px;
+  flex: 1;
+}
+
+.taskbarButton {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  min-width: 180px;
+  background: var(--win95-gray);
+  border: 1px solid var(--win95-white);
+  border-right-color: var(--win95-black);
+  border-bottom-color: var(--win95-black);
+  color: var(--win95-black);
+  font-size: 11px;
+}
+
+.taskbarButton.active {
+  background: var(--win95-navy);
+  color: var(--win95-white);
+  border: 1px solid var(--win95-black);
+  border-right-color: var(--win95-white);
+  border-bottom-color: var(--win95-white);
+  padding: 3px 7px 1px 9px;
+}
+
+.taskbarRight {
+  display: flex;
+  align-items: center;
+  padding-left: 2px;
+  border-left: 1px solid var(--win95-dark-gray);
+}
+
+.clock {
+  background: var(--win95-gray);
+  border: 1px solid var(--win95-black);
+  border-right-color: var(--win95-white);
+  border-bottom-color: var(--win95-white);
+  padding: 1px 6px;
+  font-size: 11px;
+  color: var(--win95-black);
+  min-width: 60px;
+  text-align: center;
+}
+
+.profileLink {
+  text-decoration: none;
 }
 
 @media (max-width: 768px) {
-  .header {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 1rem;
+  .taskbar {
+    height: 24px;
   }
 
-  .profileLink {
-    margin-right: 0;
-    margin-bottom: 0.75rem;
+  .startButton,
+  .taskbarButton {
+    min-width: auto;
+    padding: 1px 4px;
+    font-size: 10px;
+  }
+
+  .clock {
+    font-size: 10px;
+    padding: 1px 4px;
+    min-width: 48px;
+  }
+
+  .desktopIcons {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+  }
+
+  .profileSection {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+    gap: 1rem;
   }
 
   .profileImg {
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    height: 120px;
   }
 
   .title {
-    font-size: 1.2rem;
+    font-size: 20px;
+  }
+
+  .subtitle {
+    font-size: 14px;
   }
 }
