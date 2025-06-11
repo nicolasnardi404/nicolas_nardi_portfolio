@@ -220,13 +220,6 @@
   transform: scale(1.1);
 }
 
-.toolbar {
-  background: var(--retro-dark);
-  padding: 4px 8px;
-  display: flex;
-  gap: 8px;
-  border-bottom: 2px solid var(--retro-cyan);
-}
 
 .toolbarButton {
   background: transparent;
@@ -274,7 +267,7 @@
 }
 
 .introText {
-  font-size: 14px;
+  font-size: 1em;
   line-height: 1.5;
   margin-bottom: 16px;
   color: var(--win95-black);
@@ -441,26 +434,7 @@
   padding: 3px 1px 1px 3px;
 }
 
-.toolbar {
-  background: var(--win95-gray);
-  padding: 2px;
-  display: flex;
-  gap: 2px;
-  border-bottom: 1px solid var(--win95-dark-gray);
-}
 
-.toolbarButton {
-  background: var(--win95-gray);
-  border: 1px solid var(--win95-white);
-  border-right-color: var(--win95-black);
-  border-bottom-color: var(--win95-black);
-  padding: 3px 6px;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 11px;
-  cursor: pointer;
-}
 
 .toolbarButton:active {
   border: 1px solid var(--win95-black);

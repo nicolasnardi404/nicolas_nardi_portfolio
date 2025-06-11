@@ -78,7 +78,7 @@
 }
 
 .projectDescription {
-  font-size: 12px;
+  font-size: 1em;
   line-height: 1.4;
   margin: 16px;
   color: var(--win95-black);
@@ -90,6 +90,8 @@
   flex-wrap: wrap;
   gap: 4px;
   margin: 16px;
+  align-items: center;
+  justify-content: center;
 }
 
 .tag {
@@ -101,17 +103,18 @@
 }
 
 .projectLink {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
   background: var(--win95-gray);
   border: 2px solid var(--win95-white);
   border-right-color: var(--win95-black);
   border-bottom-color: var(--win95-black);
   color: var(--win95-black);
-  padding: 4px 8px;
-  font-size: 11px;
+  padding: 8px 8px;
+  font-size: 0.9em;
   text-decoration: none;
-  margin: 0 16px 16px;
+  margin: 4px 16px 16px;
   cursor: pointer;
 }
 

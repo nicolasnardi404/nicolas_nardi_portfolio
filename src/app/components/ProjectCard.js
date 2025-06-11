@@ -24,7 +24,7 @@ const ProjectCard = ({
         <p className={styles.projectDescription}>{description}</p>
         {tags.length > 0 && (
           <div className={styles.tags}>
-            {tags.slice(0, 3).map((tag, index) => (
+            {tags.map((tag, index) => (
               <span key={index} className={styles.tag}>
                 {tag}
               </span>

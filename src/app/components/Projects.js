@@ -22,7 +22,16 @@ const projects = [
   {
     id: 1,
     title: "CYBER PLANTA",
-    tags: ["Python", "React", "JavaScript", "AI"],
+    tags: [
+      "Python",
+      "React",
+      "JavaScript",
+      "Multi Modal AI",
+      "LangChain",
+      "RAG",
+      "Hugging Face",
+      "OpenAI",
+    ],
     description: "Permaculture Chat Bot",
     longDescription:
       "An AI-powered chatbot focused on permaculture and bio-agriculture. This project combines machine learning with ecological knowledge to provide guidance on sustainable gardening practices and environmental consciousness.",
@@ -36,7 +45,15 @@ const projects = [
     description: "Queer Video Art Platform",
     longDescription:
       "A digital platform celebrating queer video art and experimental media. This project creates a space for LGBTQIA+ artists to share and discover unique visual expressions.",
-    tags: ["React", "JavaScript", "Video Streaming"],
+    tags: [
+      "React",
+      "JavaScript",
+      "Java",
+      "Spring Boot",
+      "PostgreSQL",
+      "Docker",
+      "Deployment",
+    ],
     image: "/images/randomrainbow.png",
     link: "https://randomrainbow.art",
     icon: <FaRainbow />,
@@ -44,10 +61,18 @@ const projects = [
   {
     id: 3,
     title: "I WANNA BE NADI NICOCO",
-    description: "AI Generative Poetry",
+    description: "AI Generative Poetry Based on the works of Nadi Nicoco",
     longDescription:
       "An experimental AI project that generates poetry inspired by personal narratives and identity exploration. The project uses machine learning to create unique poetic expressions.",
-    tags: ["JavaScript", "React", "AI", "Poetry"],
+    tags: [
+      "JavaScript",
+      "React",
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "OpenAI",
+      "Vercel",
+    ],
     image: "/images/iwannabenadinicoco.png",
     link: "https://iwannabenadinicoco.art",
     icon: <FaPencilAlt />,
@@ -55,7 +80,7 @@ const projects = [
   {
     id: 4,
     title: "NADI NICOCO",
-    tags: ["HTML", "CSS", "JavaScript", "Art"],
+    tags: ["HTML", "CSS", "JavaScript"],
     description: "Artist Portfolio",
     longDescription:
       "A personal artist portfolio showcasing digital and traditional artwork, exploring themes of identity, technology, and nature through various mediums.",
@@ -66,7 +91,7 @@ const projects = [
   {
     id: 5,
     title: "QUARTO AMBIENTE",
-    tags: ["HTML", "CSS", "JavaScript", "Gallery"],
+    tags: ["HTML", "CSS", "JavaScript"],
     description: "Art Collective Portfolio",
     longDescription:
       "A digital gallery space for an art collective, featuring interactive exhibitions and collaborative projects that explore environmental and social themes.",
@@ -115,29 +140,16 @@ const Projects = () => {
           </div>
         </div>
 
-        <div className={styles.toolbar}>
-          <button className={styles.toolbarButton}>
-            <FaFolder size={11} /> File
-          </button>
-          <button
-            className={styles.toolbarButton}
-            onClick={() => setViewMode(viewMode === "grid" ? "list" : "grid")}
-          >
-            {viewMode === "grid" ? (
-              <FaThLarge size={11} />
-            ) : (
-              <FaList size={11} />
-            )}
-            Grid View
-          </button>
-        </div>
-
         <div className={styles.introCard}>
           <p className={styles.introText}>
-            Nicolas Nardi is a web developer, permaculture gardener, and artist
-            who blends technology with creative expression. Through their
-            AI-driven project, Cyber Planta, Nicolas focuses on sharing
-            knowledge about bio-agriculture, fungi, and eco-feminism.
+            Nicolas Nardi (they/them) is a creative and curious web developer
+            with experience in full-stack development and independent projects.
+            With a background in permaculture and biodiversity, they developed
+            projects like Cyber Planta to create more awareness about
+            bio-agriculture. As a multidisciplinary artist, they explore poetry,
+            drawing, video art, and creative coding. Currently based in Palermo,
+            Italy, they're passionate about projects at the intersection of
+            technology and environmental consciousness.
           </p>
           <div className={styles.socialLinks}>
             <a
