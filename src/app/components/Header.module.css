@@ -1,0 +1,81 @@
+/* .header {
+  width: 100%;
+  padding: 2rem;
+  background: var(--modern-bg);
+  border-bottom: 1px solid var(--modern-border);
+  margin-bottom: 2rem;
+}
+
+.profileSection {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.profileImg {
+  border-radius: 8px;
+  border: 2px solid var(--modern-border);
+  transition: border-color 0.2s ease;
+}
+
+.profileImg:hover {
+  border-color: var(--modern-accent);
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--modern-text);
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--modern-secondary);
+}
+
+.nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--modern-text);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.logo:hover {
+  color: var(--modern-primary);
+}
+
+.links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.link {
+  color: var(--modern-secondary);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: var(--modern-text);
+}  */

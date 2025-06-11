@@ -1,6 +1,5 @@
 .header {
   position: relative;
-  background: var(--win95-bg);
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -10,9 +9,6 @@
   transition: all 0.3s ease;
 }
 
-.modernHeader {
-  background: var(--modern-bg);
-}
 
 .profileSection {
   display: flex;

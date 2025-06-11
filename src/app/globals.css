@@ -1,13 +1,15 @@
 :root {
-  /* Modern Theme */
-  --modern-bg: #f8fafc;
-  --modern-text: #1e293b;
-  --modern-primary: #3b82f6;
-  --modern-secondary: #64748b;
-  --modern-accent: #0ea5e9;
-  --modern-surface: #ffffff;
-  --modern-border: #e2e8f0;
-  --modern-hover: #f1f5f9;
+  /* Modern Theme (Dark, Clean) */
+  --modern-bg: #181a20;  /* Deep, unified background */
+  --modern-surface: #23262f;  /* Slightly lighter for surfaces */
+  --modern-text: #f4f6fb;  /* Crisp, light text */
+  --modern-secondary: #a3adc2;  /* Muted text */
+  --modern-primary: #4f8cff;  /* Blue accent */
+  --modern-accent: #4f8cff;  /* Same as primary for unity */
+  --modern-border: #23262f;  /* Subtle border */
+  --modern-hover: #23262f;  /* Slightly lighter hover */
+  --modern-card-bg: #20222a;  /* Card background */
+  --modern-shadow: 0 2px 8px 0 rgb(0 0 0 / 0.10); /* Softer shadow */
 
   /* Windows 95 Theme */
   --win95-gray: #c0c0c0;
@@ -33,10 +35,9 @@
     inset 1px 1px var(--win95-white);
 
   /* Modern Effects */
-  --modern-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --modern-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  --modern-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --modern-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --modern-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.25);
+  --modern-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.25), 0 2px 4px -2px rgb(0 0 0 / 0.25);
+  --modern-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.25), 0 4px 6px -4px rgb(0 0 0 / 0.25);
 }
 
 @font-face {
@@ -55,24 +56,6 @@
   }
 }
 
-@keyframes neonPulse {
-  0%, 100% {
-    text-shadow: 0 0 7px var(--retro-cyan),
-                 0 0 10px var(--retro-cyan),
-                 0 0 21px var(--retro-cyan),
-                 0 0 42px var(--retro-pink),
-                 0 0 82px var(--retro-pink),
-                 0 0 92px var(--retro-pink);
-  }
-  50% {
-    text-shadow: 0 0 5px var(--retro-cyan),
-                 0 0 7px var(--retro-cyan),
-                 0 0 15px var(--retro-cyan),
-                 0 0 30px var(--retro-pink),
-                 0 0 60px var(--retro-pink),
-                 0 0 70px var(--retro-pink);
-  }
-}
 
 @keyframes chromeShine {
   0% {
@@ -83,7 +66,7 @@
   }
 }
 
-html,
+/* html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
@@ -92,24 +75,38 @@ body {
   -moz-osx-font-smoothing: unset;
   color: var(--win95-text);
   min-height: 100vh;
-  padding: 16px;
+  margin: 0;
+  padding: 0;
   background: var(--win95-bg);
-  transition: all 0.3s ease;
-}
+  transition: all 0.3s ease;  
+} */
 
-body[data-theme="modern"] {
+/* body[data-theme="modern"] {
   background: var(--modern-bg);
   color: var(--modern-text);
-  font-family: system-ui, -apple-system, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  transition: background 0.3s, color 0.3s;
+} */
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
+
+/* Add this to ensure full-height background color */
+/* #__next {
+  min-height: 100vh;
+  background: inherit;
+} */
+
+/* main {
+  background: inherit;
+  min-height: 100vh;
+} */
 
 /* Windows 95 Button Style */
 button {
@@ -143,14 +140,14 @@ a:hover {
 }
 
 /* Windows 95 Window Style */
-.window {
+/* .window {
   background: var(--win95-gray);
   border: 2px solid var(--win95-white);
   border-right-color: var(--win95-black);
   border-bottom-color: var(--win95-black);
   padding: 2px;
   margin: 20px;
-}
+} */
 
 /* Windows 95 Title Bar */
 .title-bar {
@@ -198,30 +195,110 @@ input:focus, textarea:focus, select:focus {
 }
 
 /* Modern Theme Overrides */
+
 body[data-theme="modern"] button {
   background: var(--modern-surface);
   border: 1px solid var(--modern-border);
   color: var(--modern-text);
-  font-family: system-ui, -apple-system, sans-serif;
-  font-size: 14px;
-  padding: 8px 16px;
-  border-radius: 6px;
-  transition: all 0.2s ease;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 15px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  box-shadow: none;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
 }
 
 body[data-theme="modern"] button:hover {
   background: var(--modern-hover);
-  border-color: var(--modern-border);
+  border-color: var(--modern-primary);
+  color: var(--modern-primary);
 }
 
 body[data-theme="modern"] button:active {
   background: var(--modern-hover);
-  transform: translateY(1px);
-  padding: 8px 16px;
+  color: var(--modern-accent);
+  transform: none;
 }
 
 body[data-theme="modern"] a {
   color: var(--modern-primary);
-  font-size: 14px;
-  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 15px;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  transition: color 0.2s;
+}
+
+body[data-theme="modern"] a:hover {
+  color: var(--modern-accent);
+  text-decoration: underline;
+}
+
+body[data-theme="modern"] .card,
+body[data-theme="modern"] .bio-card,
+body[data-theme="modern"] .profile-card {
+  background: var(--modern-card-bg) !important;
+  border: 1px solid var(--modern-border) !important;
+  color: var(--modern-text) !important;
+  box-shadow: var(--modern-shadow) !important;
+}
+
+body[data-theme="modern"] .card * {
+  color: var(--modern-text) !important;
+}
+
+body[data-theme="modern"] .window {
+  background: var(--modern-surface);
+  border: 1px solid var(--modern-border);
+  color: var(--modern-text);
+  box-shadow: var(--modern-shadow);
+}
+
+body[data-theme="modern"] .title-bar {
+  background: var(--modern-card-bg);
+  color: var(--modern-primary);
+}
+
+body[data-theme="modern"] .menu {
+  background: var(--modern-surface);
+  border: 1px solid var(--modern-border);
+  color: var(--modern-text);
+}
+
+body[data-theme="modern"] input,
+body[data-theme="modern"] textarea,
+body[data-theme="modern"] select {
+  background: var(--modern-surface);
+  border: 1px solid var(--modern-border);
+  color: var(--modern-text);
+}
+
+body[data-theme="modern"] input:focus,
+body[data-theme="modern"] textarea:focus,
+body[data-theme="modern"] select:focus {
+  border: 1.5px solid var(--modern-primary);
+  outline: none;
+}
+
+body[data-theme="modern"] main,
+body[data-theme="modern"] section,
+body[data-theme="modern"] .container {
+  background: var(--modern-bg) !important;
+  color: var(--modern-text) !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+body[data-theme="modern"] main > *,
+body[data-theme="modern"] .about,
+body[data-theme="modern"] .bio,
+body[data-theme="modern"] .panel,
+body[data-theme="modern"] .box {
+  background: none !important;;
+  border: none!important;
+  color: var(--modern-text) !important;
+  box-shadow: none !important;
+}
+
+body[data-theme="modern"] main > * {
+  box-shadow: var(--modern-shadow) !important;
+  border-radius: 8px !important;
 }
