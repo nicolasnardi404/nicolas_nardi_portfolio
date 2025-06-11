@@ -1,10 +1,13 @@
 :root {
-  --electric-blue: #4056F4;
-  --hot-pink: #FF3586;
-  --sunny-yellow: #FFBE0A;
-  --neon-cyan: #3BF4FB;
-  --mint-green: #47E5BC;
-  --deep-purple: #7D07AC;
+  /* Modern Theme */
+  --modern-bg: #f8fafc;
+  --modern-text: #1e293b;
+  --modern-primary: #3b82f6;
+  --modern-secondary: #64748b;
+  --modern-accent: #0ea5e9;
+  --modern-surface: #ffffff;
+  --modern-border: #e2e8f0;
+  --modern-hover: #f1f5f9;
 
   /* Windows 95 Theme */
   --win95-gray: #c0c0c0;
@@ -28,6 +31,12 @@
   --win95-border-outer:
     inset -1px -1px var(--win95-dark-gray),
     inset 1px 1px var(--win95-white);
+
+  /* Modern Effects */
+  --modern-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --modern-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --modern-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --modern-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
 @font-face {
@@ -78,13 +87,22 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  background: var(--win95-bg);
   font-family: 'MS Sans Serif', 'Segoe UI', Tahoma, sans-serif;
   -webkit-font-smoothing: none;
   -moz-osx-font-smoothing: unset;
   color: var(--win95-text);
   min-height: 100vh;
   padding: 16px;
+  background: var(--win95-bg);
+  transition: all 0.3s ease;
+}
+
+body[data-theme="modern"] {
+  background: var(--modern-bg);
+  color: var(--modern-text);
+  font-family: system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 * {
@@ -177,4 +195,33 @@ input:focus, textarea:focus, select:focus {
 .menu-item:hover {
   background: var(--win95-navy);
   color: var(--win95-white);
+}
+
+/* Modern Theme Overrides */
+body[data-theme="modern"] button {
+  background: var(--modern-surface);
+  border: 1px solid var(--modern-border);
+  color: var(--modern-text);
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+body[data-theme="modern"] button:hover {
+  background: var(--modern-hover);
+  border-color: var(--modern-border);
+}
+
+body[data-theme="modern"] button:active {
+  background: var(--modern-hover);
+  transform: translateY(1px);
+  padding: 8px 16px;
+}
+
+body[data-theme="modern"] a {
+  color: var(--modern-primary);
+  font-size: 14px;
+  font-family: system-ui, -apple-system, sans-serif;
 }

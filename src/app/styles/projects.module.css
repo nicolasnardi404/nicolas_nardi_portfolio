@@ -545,3 +545,194 @@
     margin-bottom: 0.5rem;
   }
 }
+
+.themeToggle {
+  background: var(--win95-gray);
+  border: 2px solid var(--win95-white);
+  border-right-color: var(--win95-black);
+  border-bottom-color: var(--win95-black);
+  padding: 4px 12px;
+  color: var(--win95-black);
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.themeToggle:active {
+  border: 2px solid var(--win95-black);
+  border-right-color: var(--win95-white);
+  border-bottom-color: var(--win95-white);
+  padding: 5px 11px 3px 13px;
+}
+
+.modernThemeToggle {
+  background: white;
+  border: none;
+  padding: 8px 16px;
+  color: #3b82f6;
+  font-size: 14px;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.modernThemeToggle:hover {
+  background: #f8fafc;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.modernThemeToggle:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.toggleActive {
+  transform: rotate(180deg);
+  color: #3b82f6;
+}
+
+.modernTitleBar .themeToggle {
+  color: #3b82f6;
+}
+
+/* Modern Theme Styles */
+.modern {
+  background: #f8fafc !important;
+  border: 5px solid red !important;
+}
+
+.modernWindow {
+  background: white !important;
+  border: 5px solid blue !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
+}
+
+.modernTitleBar {
+  background: white !important;
+  color: #1e293b !important;
+  border-bottom: 5px solid green !important;
+  border-radius: 12px 12px 0 0 !important;
+  padding: 16px !important;
+}
+
+.modernIntroCard {
+  background: white;
+  border: none;
+  border-radius: 8px;
+  padding: 24px;
+  margin: 16px;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+
+.modernText {
+  color: #334155;
+  font-size: 1.1em;
+  line-height: 1.7;
+}
+
+.modernSocialLinks a,
+.modernSocialLinks button {
+  background: #f1f5f9;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  color: #475569;
+  transition: all 0.2s ease;
+}
+
+.modernSocialLinks a:hover,
+.modernSocialLinks button:hover {
+  background: #e2e8f0;
+  transform: translateY(-1px);
+}
+
+.modernGrid {
+  gap: 24px;
+  padding: 24px;
+}
+
+.modernProjectCard {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+
+.modernProjectCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.modernIcon {
+  color: #3b82f6;
+}
+
+.modernTitle {
+  color: #1e293b;
+  font-size: 1.25em;
+  font-weight: 600;
+}
+
+.modernDescription {
+  color: #475569;
+}
+
+.modernTags {
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.modernTag {
+  background: #f1f5f9;
+  color: #3b82f6;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 0.875em;
+  font-weight: 500;
+}
+
+/* Dark mode styles when we add it later */
+@media (prefers-color-scheme: dark) {
+  .modern {
+    background: #0f172a;
+  }
+
+  .modernWindow,
+  .modernTitleBar,
+  .modernIntroCard,
+  .modernProjectCard {
+    background: #1e293b;
+  }
+
+  .modernTitleBar {
+    border-bottom-color: #334155;
+  }
+
+  .modernText,
+  .modernTitle {
+    color: #f8fafc;
+  }
+
+  .modernDescription {
+    color: #cbd5e1;
+  }
+
+  .modernSocialLinks a,
+  .modernSocialLinks button,
+  .modernTag {
+    background: #334155;
+    color: #e2e8f0;
+  }
+
+  .modernSocialLinks a:hover,
+  .modernSocialLinks button:hover {
+    background: #475569;
+  }
+}

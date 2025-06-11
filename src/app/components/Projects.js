@@ -1,6 +1,6 @@
 "use client"; // Ensure this is at the very top of the file
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "../styles/projects.module.css";
 import {
   FaLinkedin,
@@ -14,9 +14,11 @@ import {
   FaPencilAlt,
   FaPalette,
   FaHome,
+  FaToggleOn,
 } from "react-icons/fa";
 import ProjectCard from "./ProjectCard";
 import ProjectDetails from "./ProjectDetails";
+import Header from "./Header";
 
 const projects = [
   {
@@ -106,6 +108,16 @@ const Projects = () => {
   const [showEmail, setShowEmail] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isModernTheme, setIsModernTheme] = useState(false);
+
+  // Update document theme
+  useEffect(() => {
+    document.body.dataset.theme = isModernTheme ? "modern" : "classic";
+  }, [isModernTheme]);
+
+  const handleThemeToggle = () => {
+    setIsModernTheme((prev) => !prev);
+  };
 
   const handleProjectClick = (project, index) => {
     setSelectedProject(project);
@@ -126,88 +138,162 @@ const Projects = () => {
     }
   };
 
-  const handleClose = () => {
-    setSelectedProject(null);
-  };
-
   return (
-    <div className={styles.container}>
-      <div className={styles.window}>
-        <div className={styles.titleBar}>
-          <div className={styles.titleBarText}>
-            <FaFolder size={12} />
-            My Portfolio - File Explorer
+    <>
+      <Header isModern={isModernTheme} />
+      <div
+        className={`${styles.container} ${isModernTheme ? styles.modern : ""}`}
+      >
+        <button
+          onClick={handleThemeToggle}
+          style={{
+            position: "fixed",
+            top: "20px",
+            right: "20px",
+            zIndex: 1000,
+            padding: "10px 20px",
+            backgroundColor: isModernTheme
+              ? "var(--modern-surface)"
+              : "var(--win95-gray)",
+            color: isModernTheme ? "var(--modern-text)" : "var(--win95-text)",
+            border: isModernTheme
+              ? "1px solid var(--modern-border)"
+              : "2px solid var(--win95-white)",
+            borderRightColor: isModernTheme
+              ? "var(--modern-border)"
+              : "var(--win95-black)",
+            borderBottomColor: isModernTheme
+              ? "var(--modern-border)"
+              : "var(--win95-black)",
+            borderRadius: isModernTheme ? "8px" : "0",
+            cursor: "pointer",
+            display: "flex",
+            alignItems: "center",
+            gap: "8px",
+            boxShadow: isModernTheme ? "var(--modern-shadow)" : "none",
+            transition: "all 0.3s ease",
+            fontSize: isModernTheme ? "14px" : "12px",
+            fontFamily: isModernTheme
+              ? "system-ui, sans-serif"
+              : "MS Sans Serif, sans-serif",
+          }}
+        >
+          <FaToggleOn
+            size={16}
+            style={{
+              transform: isModernTheme ? "rotate(180deg)" : "none",
+              transition: "transform 0.3s ease",
+              color: isModernTheme ? "var(--modern-primary)" : "inherit",
+            }}
+          />
+          {isModernTheme ? "Classic Mode" : "Modern Mode"}
+        </button>
+
+        <div
+          className={`${styles.window} ${
+            isModernTheme ? styles.modernWindow : ""
+          }`}
+        >
+          <div
+            className={`${styles.titleBar} ${
+              isModernTheme ? styles.modernTitleBar : ""
+            }`}
+          >
+            <div className={styles.titleBarText}>
+              <FaFolder size={12} />
+              My Portfolio
+            </div>
+          </div>
+
+          <div
+            className={`${styles.introCard} ${
+              isModernTheme ? styles.modernIntroCard : ""
+            }`}
+          >
+            <p
+              className={`${styles.introText} ${
+                isModernTheme ? styles.modernText : ""
+              }`}
+            >
+              Nicolas Nardi (they/them) is a creative and curious web developer
+              with experience in full-stack development and independent
+              projects. With a background in permaculture and biodiversity, they
+              developed projects like Cyber Planta to create more awareness
+              about bio-agriculture. As a multidisciplinary artist, they explore
+              poetry, drawing, video art, and creative coding. Currently based
+              in Palermo, Italy, they're passionate about projects at the
+              intersection of technology and environmental consciousness.
+            </p>
+            <div
+              className={`${styles.socialLinks} ${
+                isModernTheme ? styles.modernSocialLinks : ""
+              }`}
+            >
+              <a
+                href="https://www.linkedin.com/in/nícolas-nardi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${styles.socialLink} ${
+                  isModernTheme ? styles.modernSocialLink : ""
+                }`}
+              >
+                <FaLinkedin size={11} /> LinkedIn
+              </a>
+              <a
+                href="https://github.com/nicolasnardi404"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${styles.socialLink} ${
+                  isModernTheme ? styles.modernSocialLink : ""
+                }`}
+              >
+                <FaGithub size={11} /> GitHub
+              </a>
+              <button
+                onClick={() => setShowEmail(!showEmail)}
+                className={`${styles.socialLink} ${
+                  isModernTheme ? styles.modernSocialLink : ""
+                }`}
+              >
+                <FaEnvelope size={11} />
+                {showEmail ? "nicolasnardi404@gmail.com" : "Email"}
+              </button>
+            </div>
+          </div>
+
+          <div
+            className={`${styles.projectsGrid} ${
+              isModernTheme ? styles.modernGrid : ""
+            }`}
+          >
+            {projects.map((project, index) => (
+              <ProjectCard
+                key={project.id}
+                title={project.title}
+                description={project.description}
+                icon={project.icon}
+                tags={project.tags}
+                viewMode={viewMode}
+                isModern={isModernTheme}
+                onClick={() => handleProjectClick(project, index)}
+              />
+            ))}
           </div>
         </div>
 
-        <div className={styles.introCard}>
-          <p className={styles.introText}>
-            Nicolas Nardi (they/them) is a creative and curious web developer
-            with experience in full-stack development and independent projects.
-            With a background in permaculture and biodiversity, they developed
-            projects like Cyber Planta to create more awareness about
-            bio-agriculture. As a multidisciplinary artist, they explore poetry,
-            drawing, video art, and creative coding. Currently based in Palermo,
-            Italy, they're passionate about projects at the intersection of
-            technology and environmental consciousness.
-          </p>
-          <div className={styles.socialLinks}>
-            <a
-              href="https://www.linkedin.com/in/nícolas-nardi"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.socialLink}
-            >
-              <FaLinkedin size={11} /> LinkedIn
-            </a>
-            <a
-              href="https://github.com/nicolasnardi404"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.socialLink}
-            >
-              <FaGithub size={11} /> GitHub
-            </a>
-            <button
-              onClick={() => setShowEmail(!showEmail)}
-              className={styles.socialLink}
-            >
-              <FaEnvelope size={11} />
-              {showEmail ? "nicolasnardi404@gmail.com" : "Email"}
-            </button>
-          </div>
-        </div>
-
-        <div className={styles.projectsGrid} data-view-mode={viewMode}>
-          {projects.map((project, index) => (
-            <ProjectCard
-              key={project.id}
-              title={project.title}
-              description={project.description}
-              icon={project.icon}
-              tags={project.tags}
-              onClick={() => handleProjectClick(project, index)}
-            />
-          ))}
-        </div>
-
-        <div className={styles.statusBar}>
-          <span>{projects.length} items</span>
-          <span>3.72 MB free of 521 MB</span>
-        </div>
+        {selectedProject && (
+          <ProjectDetails
+            project={selectedProject}
+            onClose={() => setSelectedProject(null)}
+            onPrevious={handlePrevious}
+            onNext={handleNext}
+            hasPrevious={currentIndex > 0}
+            hasNext={currentIndex < projects.length - 1}
+            isModern={isModernTheme}
+          />
+        )}
       </div>
-
-      {selectedProject && (
-        <ProjectDetails
-          project={selectedProject}
-          onClose={handleClose}
-          onPrevious={handlePrevious}
-          onNext={handleNext}
-          hasPrevious={currentIndex > 0}
-          hasNext={currentIndex < projects.length - 1}
-        />
-      )}
-    </div>
+    </>
   );
 };
 
