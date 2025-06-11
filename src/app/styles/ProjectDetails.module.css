@@ -1,153 +1,116 @@
 .projectDetailsWrapper {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  max-width: 900px;
-  margin: 20px auto;
-  font-family: 'MS Sans Serif', 'Segoe UI', Tahoma, sans-serif;
+  padding: 20px;
+  z-index: 1000;
 }
 
 .projectDetails {
-  background-color: var(--win95-gray);
+  background: var(--win95-gray);
   border: 2px solid var(--win95-white);
   border-right-color: var(--win95-black);
   border-bottom-color: var(--win95-black);
-  padding: 16px;
-  color: var(--win95-black);
   width: 100%;
   max-width: 800px;
   position: relative;
 }
 
-.projectDetails::before {
-  content: '';
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  right: 2px;
-  bottom: 2px;
-  border: 1px solid var(--win95-dark-gray);
-  border-right-color: var(--win95-light-gray);
-  border-bottom-color: var(--win95-light-gray);
-  pointer-events: none;
+.titleBar {
+  background: var(--win95-navy);
+  color: var(--win95-white);
+  padding: 3px 2px 3px 3px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: 11px;
 }
 
-.navButton {
-  background-color: var(--win95-gray);
-  border: 2px solid var(--win95-white);
+.titleBarText {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.closeButton {
+  width: 16px;
+  height: 14px;
+  background: var(--win95-gray);
+  border: 1px solid var(--win95-white);
   border-right-color: var(--win95-black);
   border-bottom-color: var(--win95-black);
-  width: 24px;
-  height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  padding: 2px;
   color: var(--win95-black);
-  font-size: 12px;
-  position: absolute;
 }
 
-.navButton:active {
-  border: 2px solid var(--win95-black);
+.closeButton:active {
+  border: 1px solid var(--win95-black);
   border-right-color: var(--win95-white);
   border-bottom-color: var(--win95-white);
-  padding: 1px 0 0 1px;
+  padding: 3px 1px 1px 3px;
 }
 
-.navButton:disabled {
-  color: var(--win95-dark-gray);
-  cursor: not-allowed;
+.projectContent {
+  padding: 16px;
 }
 
-.prevButton {
-  left: -30px;
-}
-
-.nextButton {
-  right: -30px;
-}
-
-.projectTitle {
-  font-size: 14px;
-  color: var(--win95-white);
-  margin-bottom: 16px;
-  background-color: var(--win95-highlight);
-  padding: 2px 4px;
-  font-weight: bold;
+.projectImage {
+  width: 100%;
+  height: auto;
+  position: relative;
+  margin: 16px 0;
+  border: 2px solid var(--win95-white);
+  border-right-color: var(--win95-black);
+  border-bottom-color: var(--win95-black);
+  padding: 2px;
+  background: var(--win95-white);
 }
 
 .projectDescription {
   font-size: 12px;
   line-height: 1.4;
-  margin-bottom: 16px;
+  margin: 16px;
+  color: var(--win95-black);
   white-space: pre-line;
-}
-
-.projectImage {
-  width: 100%;
-  max-height: 300px;
-  overflow: hidden;
-  margin-bottom: 16px;
-  position: relative;
-  aspect-ratio: 16 / 9;
-  border: 2px solid var(--win95-white);
-  border-right-color: var(--win95-black);
-  border-bottom-color: var(--win95-black);
-  padding: 2px;
-}
-
-.projectImage::before {
-  content: '';
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  right: 2px;
-  bottom: 2px;
-  border: 1px solid var(--win95-dark-gray);
-  border-right-color: var(--win95-light-gray);
-  border-bottom-color: var(--win95-light-gray);
-  pointer-events: none;
-  z-index: 2;
-}
-
-.projectImage img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
 }
 
 .tags {
   display: flex;
   flex-wrap: wrap;
   gap: 4px;
-  margin-bottom: 16px;
+  margin: 16px;
 }
 
 .tag {
-  background-color: var(--win95-gray);
-  color: var(--win95-black);
+  background: var(--win95-navy);
+  color: var(--win95-white);
   padding: 2px 4px;
   font-size: 11px;
-  border: 1px solid var(--win95-black);
 }
 
 .projectLink {
-  background-color: var(--win95-gray);
+  display: inline-flex;
+  align-items: center;
+  background: var(--win95-gray);
   border: 2px solid var(--win95-white);
   border-right-color: var(--win95-black);
   border-bottom-color: var(--win95-black);
   color: var(--win95-black);
-  padding: 6px 12px;
+  padding: 4px 8px;
+  font-size: 11px;
   text-decoration: none;
-  font-size: 12px;
-  display: inline-block;
-  margin: 0 auto;
+  margin: 0 16px 16px;
   cursor: pointer;
 }
 
@@ -155,28 +118,87 @@
   border: 2px solid var(--win95-black);
   border-right-color: var(--win95-white);
   border-bottom-color: var(--win95-white);
-  padding: 7px 11px 5px 13px;
+  padding: 5px 7px 3px 9px;
+}
+
+.navButton {
+  background: var(--win95-gray);
+  border: 2px solid var(--win95-white);
+  border-right-color: var(--win95-black);
+  border-bottom-color: var(--win95-black);
+  width: 32px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin: 0 12px;
+  color: var(--win95-black);
+  padding: 0;
+  font-size: 16px;
+}
+
+.navButton:active:not(:disabled) {
+  border: 2px solid var(--win95-black);
+  border-right-color: var(--win95-white);
+  border-bottom-color: var(--win95-white);
+  padding: 1px 0 0 1px;
+}
+
+.navButton:hover:not(:disabled) {
+  background: var(--win95-light-gray);
+}
+
+.navButton:disabled {
+  color: var(--win95-dark-gray);
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.prevButton {
+  position: relative;
+}
+
+.nextButton {
+  position: relative;
+}
+
+.prevButton::before,
+.nextButton::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  border: 1px solid var(--win95-dark-gray);
+  border-right-color: var(--win95-light-gray);
+  border-bottom-color: var(--win95-light-gray);
+  pointer-events: none;
 }
 
 @media (max-width: 768px) {
-  .projectImage {
-    max-height: 200px;
-  }
-  
-  .navButton {
-    position: static;
-    margin: 0 8px;
-  }
-  
   .projectDetailsWrapper {
-    flex-direction: row;
-    align-items: center;
-    padding: 0 8px;
+    padding: 10px;
+  }
+
+  .projectImage {
+    height: auto;
+  }
+
+  .navButton {
+    width: 28px;
+    height: 48px;
+    margin: 0 8px;
+    font-size: 14px;
   }
 }
 
 @media (max-width: 480px) {
-  .projectImage {
-    max-height: 150px;
+  .navButton {
+    width: 24px;
+    height: 40px;
+    margin: 0 4px;
+    font-size: 12px;
   }
 }

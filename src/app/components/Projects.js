@@ -15,41 +15,63 @@ import {
   FaPalette,
   FaHome,
 } from "react-icons/fa";
+import ProjectCard from "./ProjectCard";
+import ProjectDetails from "./ProjectDetails";
 
 const projects = [
   {
     id: 1,
     title: "CYBER PLANTA",
-    tags: ["Python", "React", "JavaScript"],
+    tags: ["Python", "React", "JavaScript", "AI"],
     description: "Permaculture Chat Bot",
+    longDescription:
+      "An AI-powered chatbot focused on permaculture and bio-agriculture. This project combines machine learning with ecological knowledge to provide guidance on sustainable gardening practices and environmental consciousness.",
+    image: "/images/cyberplanta.png",
+    link: "https://github.com/nicolasnardi404/cyberplanta",
     icon: <FaRobot />,
   },
   {
     id: 2,
     title: "RANDOM RAINBOW",
     description: "Queer Video Art Platform",
-    tags: ["React", "JavaScript", "Java"],
+    longDescription:
+      "A digital platform celebrating queer video art and experimental media. This project creates a space for LGBTQIA+ artists to share and discover unique visual expressions.",
+    tags: ["React", "JavaScript", "Video Streaming"],
+    image: "/images/randomrainbow.png",
+    link: "https://randomrainbow.art",
     icon: <FaRainbow />,
   },
   {
     id: 3,
     title: "I WANNA BE NADI NICOCO",
     description: "AI Generative Poetry",
-    tags: ["JavaScript", "React", "Node.js"],
+    longDescription:
+      "An experimental AI project that generates poetry inspired by personal narratives and identity exploration. The project uses machine learning to create unique poetic expressions.",
+    tags: ["JavaScript", "React", "AI", "Poetry"],
+    image: "/images/iwannabenadinicoco.png",
+    link: "https://iwannabenadinicoco.art",
     icon: <FaPencilAlt />,
   },
   {
     id: 4,
     title: "NADI NICOCO",
-    tags: ["HTML", "CSS", "JavaScript"],
+    tags: ["HTML", "CSS", "JavaScript", "Art"],
     description: "Artist Portfolio",
+    longDescription:
+      "A personal artist portfolio showcasing digital and traditional artwork, exploring themes of identity, technology, and nature through various mediums.",
+    image: "/images/nadinicoco.png",
+    link: "https://nadinicoco.art",
     icon: <FaPalette />,
   },
   {
     id: 5,
     title: "QUARTO AMBIENTE",
-    tags: ["HTML", "CSS", "JavaScript"],
+    tags: ["HTML", "CSS", "JavaScript", "Gallery"],
     description: "Art Collective Portfolio",
+    longDescription:
+      "A digital gallery space for an art collective, featuring interactive exhibitions and collaborative projects that explore environmental and social themes.",
+    image: "/images/quarto-ambiente.png",
+    link: "https://quartoambiente.art",
     icon: <FaHome />,
   },
 ];
@@ -57,6 +79,31 @@ const projects = [
 const Projects = () => {
   const [viewMode, setViewMode] = useState("grid");
   const [showEmail, setShowEmail] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handleProjectClick = (project, index) => {
+    setSelectedProject(project);
+    setCurrentIndex(index);
+  };
+
+  const handlePrevious = () => {
+    if (currentIndex > 0) {
+      setSelectedProject(projects[currentIndex - 1]);
+      setCurrentIndex(currentIndex - 1);
+    }
+  };
+
+  const handleNext = () => {
+    if (currentIndex < projects.length - 1) {
+      setSelectedProject(projects[currentIndex + 1]);
+      setCurrentIndex(currentIndex + 1);
+    }
+  };
+
+  const handleClose = () => {
+    setSelectedProject(null);
+  };
 
   return (
     <div className={styles.container}>
@@ -120,26 +167,15 @@ const Projects = () => {
         </div>
 
         <div className={styles.projectsGrid} data-view-mode={viewMode}>
-          {projects.map((project) => (
-            <div
+          {projects.map((project, index) => (
+            <ProjectCard
               key={project.id}
-              className={`${styles.projectCard} ${styles[viewMode]}`}
-            >
-              <div className={styles.projectIcon}>{project.icon}</div>
-              <div className={styles.projectContent}>
-                <h3 className={styles.projectTitle}>{project.title}</h3>
-                <p className={styles.projectDescription}>
-                  {project.description}
-                </p>
-                <div className={styles.tags}>
-                  {project.tags.map((tag, index) => (
-                    <span key={index} className={styles.tag}>
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
+              title={project.title}
+              description={project.description}
+              icon={project.icon}
+              tags={project.tags}
+              onClick={() => handleProjectClick(project, index)}
+            />
           ))}
         </div>
 
@@ -148,6 +184,17 @@ const Projects = () => {
           <span>3.72 MB free of 521 MB</span>
         </div>
       </div>
+
+      {selectedProject && (
+        <ProjectDetails
+          project={selectedProject}
+          onClose={handleClose}
+          onPrevious={handlePrevious}
+          onNext={handleNext}
+          hasPrevious={currentIndex > 0}
+          hasNext={currentIndex < projects.length - 1}
+        />
+      )}
     </div>
   );
 };
