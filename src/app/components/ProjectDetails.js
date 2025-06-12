@@ -20,22 +20,24 @@ export default function ProjectDetails({
 }) {
   return (
     <div
-      className={`${styles.projectDetailsWrapper} ${
-        isModern ? styles.modernWrapper : ""
+      className={`${
+        isModern
+          ? styles.modernProjectDetailsWrapper
+          : styles.projectDetailsWrapper
       }`}
       style={{
-        backgroundColor: isModern ? "var(--modern-bg)" : "var(--win95-bg)",
+        backgroundColor: isModern ? undefined : "var(--win95-bg)",
       }}
     >
       <button
-        className={`${styles.navButton} ${styles.prevButton} ${
-          isModern ? styles.modernNavButton : ""
+        className={`${isModern ? styles.modernNavButton : styles.navButton} ${
+          styles.prevButton
         }`}
         onClick={onPrevious}
         disabled={!hasPrevious}
         aria-label="Previous project"
         style={{
-          color: isModern ? "var(--modern-secondary)" : undefined,
+          color: isModern ? undefined : undefined,
           opacity: !hasPrevious ? 0.5 : 1,
         }}
       >
@@ -43,24 +45,20 @@ export default function ProjectDetails({
       </button>
 
       <div
-        className={`${styles.projectDetails} ${
-          isModern ? styles.modernProjectDetails : ""
+        className={`${
+          isModern ? styles.modernProjectDetails : styles.projectDetails
         }`}
         style={{
-          backgroundColor: isModern ? "var(--modern-surface)" : undefined,
-          boxShadow: isModern ? "var(--modern-shadow-md)" : undefined,
+          backgroundColor: isModern ? undefined : undefined,
+          boxShadow: isModern ? undefined : undefined,
         }}
       >
         <div
-          className={`${styles.titleBar} ${
-            isModern ? styles.modernTitleBar : ""
-          }`}
+          className={`${isModern ? styles.modernTitleBar : styles.titleBar}`}
           style={{
-            backgroundColor: isModern ? "var(--modern-surface)" : undefined,
-            color: isModern ? "var(--modern-text)" : undefined,
-            borderBottom: isModern
-              ? "1px solid var(--modern-border)"
-              : undefined,
+            backgroundColor: isModern ? undefined : undefined,
+            color: isModern ? undefined : undefined,
+            borderBottom: isModern ? undefined : undefined,
           }}
         >
           <div className={styles.titleBarText}>
@@ -74,12 +72,12 @@ export default function ProjectDetails({
             {project.title}
           </div>
           <button
-            className={`${styles.closeButton} ${
-              isModern ? styles.modernCloseButton : ""
+            className={`${
+              isModern ? styles.modernCloseButton : styles.closeButton
             }`}
             onClick={onClose}
             style={{
-              color: isModern ? "var(--modern-secondary)" : undefined,
+              color: isModern ? undefined : undefined,
             }}
           >
             <FaTimes size={12} />
@@ -88,8 +86,8 @@ export default function ProjectDetails({
 
         {project.image && (
           <div
-            className={`${styles.projectImage} ${
-              isModern ? styles.modernProjectImage : ""
+            className={`${
+              isModern ? styles.modernProjectImage : styles.projectImage
             }`}
           >
             <Image
@@ -101,7 +99,7 @@ export default function ProjectDetails({
                 width: "100%",
                 height: "auto",
                 objectFit: "cover",
-                borderRadius: isModern ? "8px" : "0",
+                borderRadius: isModern ? "0" : "0",
               }}
               priority
             />
@@ -109,30 +107,32 @@ export default function ProjectDetails({
         )}
 
         <div
-          className={`${styles.projectDescription} ${
-            isModern ? styles.modernProjectDescription : ""
+          className={`${
+            isModern
+              ? styles.modernProjectDescription
+              : styles.projectDescription
           }`}
           style={{
-            color: isModern ? "var(--modern-text)" : undefined,
+            color: isModern ? undefined : undefined,
           }}
         >
           {project.longDescription || project.description}
         </div>
 
         <div
-          className={`${styles.tags} ${isModern ? styles.modernTags : ""}`}
+          className={`${isModern ? styles.modernTags : styles.tags}`}
           style={{
-            gap: isModern ? "8px" : undefined,
+            gap: isModern ? undefined : undefined,
           }}
         >
           {project.tags.map((tag, index) => (
             <span
               key={index}
-              className={`${styles.tag} ${isModern ? styles.modernTag : ""}`}
+              className={`${isModern ? styles.modernTag : styles.tag}`}
               style={{
-                backgroundColor: isModern ? "var(--modern-hover)" : undefined,
-                color: isModern ? "var(--modern-primary)" : undefined,
-                borderRadius: isModern ? "6px" : undefined,
+                backgroundColor: isModern ? undefined : undefined,
+                color: isModern ? undefined : undefined,
+                borderRadius: isModern ? undefined : undefined,
               }}
             >
               {tag}
@@ -145,14 +145,14 @@ export default function ProjectDetails({
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
-            className={`${styles.projectLink} ${
-              isModern ? styles.modernProjectLink : ""
+            className={`${
+              isModern ? styles.modernProjectLink : styles.projectLink
             }`}
             style={{
-              backgroundColor: isModern ? "var(--modern-primary)" : undefined,
-              color: isModern ? "white" : undefined,
-              borderRadius: isModern ? "6px" : undefined,
-              boxShadow: isModern ? "var(--modern-shadow)" : undefined,
+              backgroundColor: isModern ? undefined : undefined,
+              color: isModern ? undefined : undefined,
+              borderRadius: isModern ? undefined : undefined,
+              boxShadow: isModern ? undefined : undefined,
             }}
           >
             <FaExternalLinkAlt size={12} style={{ marginRight: 8 }} />
@@ -162,14 +162,14 @@ export default function ProjectDetails({
       </div>
 
       <button
-        className={`${styles.navButton} ${styles.nextButton} ${
-          isModern ? styles.modernNavButton : ""
+        className={`${isModern ? styles.modernNavButton : styles.navButton} ${
+          styles.nextButton
         }`}
         onClick={onNext}
         disabled={!hasNext}
         aria-label="Next project"
         style={{
-          color: isModern ? "var(--modern-secondary)" : undefined,
+          color: isModern ? undefined : undefined,
           opacity: !hasNext ? 0.5 : 1,
         }}
       >

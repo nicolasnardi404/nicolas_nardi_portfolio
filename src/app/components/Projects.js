@@ -38,7 +38,7 @@ const projects = [
     longDescription:
       "An AI-powered chatbot focused on permaculture and bio-agriculture. This project combines machine learning with ecological knowledge to provide guidance on sustainable gardening practices and environmental consciousness.",
     image: "/images/cyberplanta.png",
-    link: "https://github.com/nicolasnardi404/cyberplanta",
+    link: "https://github.com/nicolasnardi404/permaculture-chatbot",
     icon: <FaRobot />,
   },
   {
@@ -76,7 +76,7 @@ const projects = [
       "Vercel",
     ],
     image: "/images/iwannabenadinicoco.png",
-    link: "https://iwannabenadinicoco.art",
+    link: "https://iwannabe.nadinicoco.com",
     icon: <FaPencilAlt />,
   },
   {
@@ -87,7 +87,7 @@ const projects = [
     longDescription:
       "A personal artist portfolio showcasing digital and traditional artwork, exploring themes of identity, technology, and nature through various mediums.",
     image: "/images/nadinicoco.png",
-    link: "https://nadinicoco.art",
+    link: "https://nadinicoco.com",
     icon: <FaPalette />,
   },
   {
@@ -98,7 +98,7 @@ const projects = [
     longDescription:
       "A digital gallery space for an art collective, featuring interactive exhibitions and collaborative projects that explore environmental and social themes.",
     image: "/images/quarto-ambiente.png",
-    link: "https://quartoambiente.art",
+    link: "https://quartoambiente.com.br",
     icon: <FaHome />,
   },
 ];
@@ -204,7 +204,6 @@ const Projects = () => {
               My Portfolio
             </div>
           </div>
-
           <div
             className={`${styles.introCard} ${
               isModernTheme ? styles.modernIntroCard : ""
@@ -260,7 +259,6 @@ const Projects = () => {
               </button>
             </div>
           </div>
-
           <div
             className={`${styles.projectsGrid} ${
               isModernTheme ? styles.modernGrid : ""
