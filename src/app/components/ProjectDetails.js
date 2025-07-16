@@ -79,10 +79,10 @@ export default function ProjectDetails({
             }`}
             onClick={onClose}
             style={{
-              color: isModern ? undefined : undefined,
+              color: isModern ? "white" : undefined,
             }}
           >
-            <FaTimes size={12} />
+            X
           </button>
         </div>
 
@@ -151,13 +151,19 @@ export default function ProjectDetails({
               isModern ? styles.modernProjectLink : styles.projectLink
             }`}
             style={{
-              backgroundColor: isModern ? undefined : undefined,
-              color: isModern ? undefined : undefined,
+              backgroundColor: isModern ? "var(--modern-accent)" : undefined,
+              color: isModern ? "var(--modern-text)" : undefined,
               borderRadius: isModern ? undefined : undefined,
               boxShadow: isModern ? undefined : undefined,
             }}
           >
-            <FaExternalLinkAlt size={12} style={{ marginRight: 8 }} />
+            <FaExternalLinkAlt
+              size={12}
+              style={{
+                marginRight: 8,
+                color: isModern ? "var(--modern-text)" : undefined,
+              }}
+            />
             Visit Project
           </a>
         )}

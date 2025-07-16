@@ -283,8 +283,8 @@
 .modernCloseButton {
   background: transparent;
   border: none;
-  color: var(--modern-text);
-  padding: 8px;
+  color: white;
+  padding: 0;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -292,7 +292,17 @@
   border-radius: 8px;
   width: 32px;
   height: 32px;
+  font-size: 24px;
+  line-height: 1;
   transition: all 0.2s ease;
+}
+
+.modernCloseButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.modernCloseButton svg {
+  color: var(--modern-text) !important;
 }
 
 /* Responsive styles */
