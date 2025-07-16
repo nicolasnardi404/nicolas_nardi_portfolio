@@ -220,7 +220,7 @@ const Projects = () => {
               developed projects like Cyber Planta to create more awareness
               about bio-agriculture. As a multidisciplinary artist, they explore
               poetry, drawing, video art, and creative coding. Currently based
-              in Palermo, Italy, they're passionate about projects at the
+              in Palermo, Italy, they&apos;re passionate about projects at the
               intersection of technology and environmental consciousness.
             </p>
             <div

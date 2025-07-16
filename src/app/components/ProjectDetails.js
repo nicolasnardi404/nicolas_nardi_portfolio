@@ -18,6 +18,8 @@ export default function ProjectDetails({
   hasNext,
   isModern,
 }) {
+  const isMobile = typeof window !== "undefined" && window.innerWidth <= 768;
+
   return (
     <div
       className={`${
@@ -29,20 +31,20 @@ export default function ProjectDetails({
         backgroundColor: isModern ? undefined : "var(--win95-bg)",
       }}
     >
-      <button
-        className={`${isModern ? styles.modernNavButton : styles.navButton} ${
-          styles.prevButton
-        }`}
-        onClick={onPrevious}
-        disabled={!hasPrevious}
-        aria-label="Previous project"
-        style={{
-          color: isModern ? undefined : undefined,
-          opacity: !hasPrevious ? 0.5 : 1,
-        }}
-      >
-        <FaChevronLeft />
-      </button>
+      {!isMobile && (
+        <button
+          className={`${isModern ? styles.modernNavButton : styles.navButton}`}
+          onClick={onPrevious}
+          disabled={!hasPrevious}
+          aria-label="Previous project"
+          style={{
+            color: isModern ? undefined : undefined,
+            opacity: !hasPrevious ? 0.5 : 1,
+          }}
+        >
+          <FaChevronLeft />
+        </button>
+      )}
 
       <div
         className={`${
@@ -161,20 +163,53 @@ export default function ProjectDetails({
         )}
       </div>
 
-      <button
-        className={`${isModern ? styles.modernNavButton : styles.navButton} ${
-          styles.nextButton
-        }`}
-        onClick={onNext}
-        disabled={!hasNext}
-        aria-label="Next project"
-        style={{
-          color: isModern ? undefined : undefined,
-          opacity: !hasNext ? 0.5 : 1,
-        }}
-      >
-        <FaChevronRight />
-      </button>
+      {!isMobile && (
+        <button
+          className={`${isModern ? styles.modernNavButton : styles.navButton}`}
+          onClick={onNext}
+          disabled={!hasNext}
+          aria-label="Next project"
+          style={{
+            color: isModern ? undefined : undefined,
+            opacity: !hasNext ? 0.5 : 1,
+          }}
+        >
+          <FaChevronRight />
+        </button>
+      )}
+
+      {isMobile && (
+        <div className={styles.navigationContainer}>
+          <button
+            className={`${
+              isModern ? styles.modernNavButton : styles.navButton
+            }`}
+            onClick={onPrevious}
+            disabled={!hasPrevious}
+            aria-label="Previous project"
+            style={{
+              color: isModern ? undefined : undefined,
+              opacity: !hasPrevious ? 0.5 : 1,
+            }}
+          >
+            <FaChevronLeft />
+          </button>
+          <button
+            className={`${
+              isModern ? styles.modernNavButton : styles.navButton
+            }`}
+            onClick={onNext}
+            disabled={!hasNext}
+            aria-label="Next project"
+            style={{
+              color: isModern ? undefined : undefined,
+              opacity: !hasNext ? 0.5 : 1,
+            }}
+          >
+            <FaChevronRight />
+          </button>
+        </div>
+      )}
     </div>
   );
 }
