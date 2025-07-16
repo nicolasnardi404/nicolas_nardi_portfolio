@@ -22,6 +22,43 @@ import Header from "./Header";
 
 const projects = [
   {
+    id: 2,
+    title: "RANDOM RAINBOW",
+    description: "Queer Video Art Platform",
+    longDescription:
+      "A digital platform celebrating queer video art and experimental media. This project creates a space for LGBTQIA+ artists to share and discover unique visual expressions.",
+    tags: [
+      "React",
+      "JavaScript",
+      "Java",
+      "Spring Boot",
+      "PostgreSQL",
+      "Docker",
+      "Deployment",
+    ],
+    image: "/images/randomrainbow.png",
+    link: "https://randomrainbow.art",
+    icon: <FaRainbow />,
+  },
+  {
+    id: 6,
+    title: "RANDOM RAINBOW LAB",
+    tags: [
+      "p5.js",
+      "Processing",
+      "Hand Controller Library",
+      "JavaScript",
+      "HTML",
+      "CSS",
+    ],
+    description: "Open Source Live Video Controller",
+    longDescription:
+      "An open-source live video editing platform that enables real-time video manipulation with various effects. The platform features a Live Video Hand Controller interface that allows artists to control effects through hand gestures, with capabilities for recording and saving edited videos. Thistool is designed to enhance live performances and facilitate creative digital expression.",
+    image: "/images/randomrainbowlab.png",
+    link: "https://lab.randomrainbow.art",
+    icon: <FaHome />,
+  },
+  {
     id: 1,
     title: "CYBER PLANTA",
     tags: [
@@ -40,25 +77,6 @@ const projects = [
     image: "/images/cyberplanta.png",
     link: "https://github.com/nicolasnardi404/permaculture-chatbot",
     icon: <FaRobot />,
-  },
-  {
-    id: 2,
-    title: "RANDOM RAINBOW",
-    description: "Queer Video Art Platform",
-    longDescription:
-      "A digital platform celebrating queer video art and experimental media. This project creates a space for LGBTQIA+ artists to share and discover unique visual expressions.",
-    tags: [
-      "React",
-      "JavaScript",
-      "Java",
-      "Spring Boot",
-      "PostgreSQL",
-      "Docker",
-      "Deployment",
-    ],
-    image: "/images/randomrainbow.png",
-    link: "https://randomrainbow.art",
-    icon: <FaRainbow />,
   },
   {
     id: 3,
@@ -83,9 +101,9 @@ const projects = [
     id: 4,
     title: "NADI NICOCO",
     tags: ["HTML", "CSS", "JavaScript"],
-    description: "Artist Portfolio",
+    description: "Windows 95-Inspired Artist Portfolio",
     longDescription:
-      "A personal artist portfolio showcasing digital and traditional artwork, exploring themes of identity, technology, and nature through various mediums.",
+      "A nostalgic digital art portfolio featuring a Windows 95-inspired interface, complete with classic desktop icons, windows, and retro UI elements. This creative platform showcases digital and traditional artwork through an interactive experience that pays homage to the golden age of personal computing while presenting contemporary artistic works.",
     image: "/images/nadinicoco.png",
     link: "https://nadinicoco.com",
     icon: <FaPalette />,
