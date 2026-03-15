@@ -15,7 +15,7 @@ export default function Header({ isModern }) {
         }`}
       >
         <Image
-          src="/images/nicolas.jpg"
+          src="/images/nicoco_portrait.JPG"
           alt="Nicolas Nardi"
           width={150}
           height={150}

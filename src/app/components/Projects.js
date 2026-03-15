@@ -22,6 +22,28 @@ import Header from "./Header";
 
 const projects = [
   {
+    id: 7,
+    title: "APEFOREST",
+    description: "Reforestation Platform",
+    longDescription:
+      "A platform connecting indigenous and local communities with sustainability-focused investors to fund and scale reforestation initiatives that benefit both the environment and local populations.",
+    tags: ["React", "JavaScript", "Node.js", "Sustainability", "Social Impact"],
+    image: "/images/apeforest.png",
+    link: "https://www.apeforest.net/",
+    icon: <FaHome />,
+  },
+  {
+    id: 1,
+    title: "NICOCO STUDIO",
+    description: "Creative Tools Collection",
+    longDescription:
+      "A collection of interactive creative tools for designers and developers. This experimental toolbox features animation tools, typography explorers, 3D builders, gradient generators, and cosmic design elements to spark creativity and enhance digital projects.",
+    tags: ["JavaScript", "Three.js", "Canvas", "Creative Coding"],
+    image: "/images/nicoco_studio.png",
+    link: "/",
+    icon: <FaPalette />,
+  },
+  {
     id: 2,
     title: "RANDOM RAINBOW",
     description: "Queer Video Art Platform",
@@ -71,9 +93,9 @@ const projects = [
       "Hugging Face",
       "OpenAI",
     ],
-    description: "Permaculture Chat Bot",
+    description: "Permaculture Chat Bot (2024-2025)",
     longDescription:
-      "An AI-powered chatbot focused on permaculture and bio-agriculture. This project combines machine learning with ecological knowledge to provide guidance on sustainable gardening practices and environmental consciousness.",
+      "An AI-powered chatbot focused on permaculture and bio-agriculture that was live between 2024-2025. This project combined machine learning with ecological knowledge to provide guidance on sustainable gardening practices and environmental consciousness. While the live service is no longer available, the code remains accessible on GitHub.",
     image: "/images/cyberplanta.png",
     link: "https://github.com/nicolasnardi404/permaculture-chatbot",
     icon: <FaRobot />,
@@ -232,14 +254,14 @@ const Projects = () => {
                 isModernTheme ? styles.modernText : ""
               }`}
             >
-              Nicolas Nardi (they/them) is a creative and curious web developer
-              with experience in full-stack development and independent
-              projects. With a background in permaculture and biodiversity, they
-              developed projects like Cyber Planta to create more awareness
-              about bio-agriculture. As a multidisciplinary artist, they explore
-              poetry, drawing, video art, and creative coding. Currently based
-              in Palermo, Italy, they&apos;re passionate about projects at the
-              intersection of technology and environmental consciousness.
+              Nicolas Nardi (they/them) is a full stack software developer with
+              also a background in regenerative agriculture and arts. They are
+              the co-founder of Apeforest, an early-stage start-up focused on
+              helping indigenous and local communities register their
+              reforestation projects and find ways to get investment from
+              companies worried about sustainability and community. They also
+              work as a freelance with other start-ups and companies, working on
+              MVPs, process automation, and web design.
             </p>
             <div
               className={`${styles.socialLinks} ${
