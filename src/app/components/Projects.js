@@ -19,6 +19,7 @@ import {
 import ProjectCard from "./ProjectCard";
 import ProjectDetails from "./ProjectDetails";
 import Header from "./Header";
+import ParticleBackground from "./CSSParticleBackground";
 
 const projects = [
   {
@@ -28,7 +29,7 @@ const projects = [
     longDescription:
       "A platform connecting indigenous and local communities with sustainability-focused investors to fund and scale reforestation initiatives that benefit both the environment and local populations.",
     tags: ["React", "JavaScript", "Node.js", "Sustainability", "Social Impact"],
-    image: "/images/apeforest.png",
+    image: "/images/apeforest.webp",
     link: "https://www.apeforest.net/",
     icon: <FaHome />,
   },
@@ -39,7 +40,7 @@ const projects = [
     longDescription:
       "A collection of interactive creative tools for designers and developers. This experimental toolbox features animation tools, typography explorers, 3D builders, gradient generators, and cosmic design elements to spark creativity and enhance digital projects.",
     tags: ["JavaScript", "Three.js", "Canvas", "Creative Coding"],
-    image: "/images/nicoco_studio.png",
+    image: "/images/nicoco_studio.webp",
     link: "/",
     icon: <FaPalette />,
   },
@@ -58,7 +59,7 @@ const projects = [
       "Docker",
       "Deployment",
     ],
-    image: "/images/randomrainbow.png",
+    image: "/images/randomrainbow.webp",
     link: "https://randomrainbow.art",
     icon: <FaRainbow />,
   },
@@ -76,7 +77,7 @@ const projects = [
     description: "Open Source Live Video Controller",
     longDescription:
       "An open-source live video editing platform that enables real-time video manipulation with various effects. The platform features a Live Video Hand Controller interface that allows artists to control effects through hand gestures, with capabilities for recording and saving edited videos. Thistool is designed to enhance live performances and facilitate creative digital expression.",
-    image: "/images/randomrainbowlab.png",
+    image: "/images/randomrainbowlab.webp",
     link: "https://lab.randomrainbow.art",
     icon: <FaHome />,
   },
@@ -96,7 +97,7 @@ const projects = [
     description: "Permaculture Chat Bot (2024-2025)",
     longDescription:
       "An AI-powered chatbot focused on permaculture and bio-agriculture that was live between 2024-2025. This project combined machine learning with ecological knowledge to provide guidance on sustainable gardening practices and environmental consciousness. While the live service is no longer available, the code remains accessible on GitHub.",
-    image: "/images/cyberplanta.png",
+    image: "/images/cyberplanta.webp",
     link: "https://github.com/nicolasnardi404/permaculture-chatbot",
     icon: <FaRobot />,
   },
@@ -115,7 +116,7 @@ const projects = [
       "OpenAI",
       "Vercel",
     ],
-    image: "/images/iwannabenadinicoco.png",
+    image: "/images/iwannabenadinicoco.webp",
     link: "https://iwannabe.nadinicoco.com",
     icon: <FaPencilAlt />,
   },
@@ -126,7 +127,7 @@ const projects = [
     description: "Windows 95-Inspired Artist Portfolio",
     longDescription:
       "A nostalgic digital art portfolio featuring a Windows 95-inspired interface, complete with classic desktop icons, windows, and retro UI elements. This creative platform showcases digital and traditional artwork through an interactive experience that pays homage to the golden age of personal computing while presenting contemporary artistic works.",
-    image: "/images/nadinicoco.png",
+    image: "/images/nadinicoco.webp",
     link: "https://nadinicoco.com",
     icon: <FaPalette />,
   },
@@ -137,7 +138,7 @@ const projects = [
     description: "Art Collective Portfolio",
     longDescription:
       "A digital gallery space for an art collective, featuring interactive exhibitions and collaborative projects that explore environmental and social themes.",
-    image: "/images/quarto-ambiente.png",
+    image: "/images/quarto-ambiente.webp",
     link: "https://quartoambiente.com.br",
     icon: <FaHome />,
   },
@@ -181,6 +182,7 @@ const Projects = () => {
   return (
     <>
       <Header isModern={isModernTheme} />
+      {isModernTheme && <ParticleBackground />}
       <div
         className={`${styles.container} ${isModernTheme ? styles.modern : ""}`}
       >
