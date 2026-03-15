@@ -44,7 +44,7 @@ const projects = [
       "A collection of interactive creative tools for designers and developers. This experimental toolbox features animation tools, typography explorers, 3D builders, gradient generators, and cosmic design elements to spark creativity and enhance digital projects.",
     tags: ["JavaScript", "Three.js", "Canvas", "Creative Coding"],
     image: "/images/nicoco_studio.webp",
-    link: "/",
+    link: "https://studio.nadinicoco.com/",
     icon: <FaPalette />,
   },
   {
