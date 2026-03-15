@@ -13,8 +13,11 @@ import {
   FaRainbow,
   FaPencilAlt,
   FaPalette,
-  FaHome,
   FaToggleOn,
+  FaSeedling,
+  FaVideo,
+  FaUsers,
+  FaDesktop,
 } from "react-icons/fa";
 import ProjectCard from "./ProjectCard";
 import ProjectDetails from "./ProjectDetails";
@@ -31,7 +34,7 @@ const projects = [
     tags: ["React", "JavaScript", "Node.js", "Sustainability", "Social Impact"],
     image: "/images/apeforest.webp",
     link: "https://www.apeforest.net/",
-    icon: <FaHome />,
+    icon: <FaSeedling />,
   },
   {
     id: 1,
@@ -79,7 +82,7 @@ const projects = [
       "An open-source live video editing platform that enables real-time video manipulation with various effects. The platform features a Live Video Hand Controller interface that allows artists to control effects through hand gestures, with capabilities for recording and saving edited videos. Thistool is designed to enhance live performances and facilitate creative digital expression.",
     image: "/images/randomrainbowlab.webp",
     link: "https://lab.randomrainbow.art",
-    icon: <FaHome />,
+    icon: <FaVideo />,
   },
   {
     id: 1,
@@ -129,7 +132,7 @@ const projects = [
       "A nostalgic digital art portfolio featuring a Windows 95-inspired interface, complete with classic desktop icons, windows, and retro UI elements. This creative platform showcases digital and traditional artwork through an interactive experience that pays homage to the golden age of personal computing while presenting contemporary artistic works.",
     image: "/images/nadinicoco.webp",
     link: "https://nadinicoco.com",
-    icon: <FaPalette />,
+    icon: <FaDesktop />,
   },
   {
     id: 5,
@@ -140,7 +143,7 @@ const projects = [
       "A digital gallery space for an art collective, featuring interactive exhibitions and collaborative projects that explore environmental and social themes.",
     image: "/images/quarto-ambiente.webp",
     link: "https://quartoambiente.com.br",
-    icon: <FaHome />,
+    icon: <FaUsers />,
   },
 ];
 
